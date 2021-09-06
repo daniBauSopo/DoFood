@@ -1,0 +1,749 @@
+:root{
+    --primario:#dd4e3e;
+    --secundario:#fff;
+    --quicksand:'Quicksand', sans-serif;
+    --roboto:'Roboto Slab', serif;
+    --rubik:'Rubik', sans-serif;
+}
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family: monospace;
+}
+p{
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+/* MENU LATERAL */
+.menu-lateral{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    background-color: var(--primario);
+}
+.mostrar{
+    min-width: 260px;
+}
+
+.menu-lateral > a{
+    margin-bottom: 50px;
+}
+.menu-lateral > a:first-child{
+    margin-top: 20px;
+}
+.menu-lateral > .registrarse,
+.menu-lateral > .iniciar,
+.menu-lateral > .cuenta{
+    border: var(--secundario) 2px solid;
+    padding: 10px 20px;
+    
+}
+.menu-lateral > a{
+    color: var(--secundario);
+    margin: 10px 5px;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 2em;
+    font-family: var(--roboto);
+    text-align: center;
+}
+.menu-lateral > p{
+    font-size: 3em;
+    text-align: center;
+    padding-top: 30px;
+    color: #fff;
+}
+.menu-lateral > p:hover{
+    cursor: pointer;
+}
+/* HEADER */
+header{
+    box-sizing: content-box;
+    min-width: 420px;
+}
+/* -BARRA */
+.bg-color{
+    background-color: var(--primario);
+}
+.header-barra-superior{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.header-barra-logo{
+    padding: 20px 20px;
+}
+.header-barra-logo > a{
+    text-decoration: none;
+    color: var(--secundario);
+    font-family: var(--quicksand);
+    font-size: 30px;
+    border-bottom: var(--secundario) 2px solid;
+}
+.header-barra-a{
+    padding: 10px 20px;
+}
+.header-barra-a > a{
+    color: var(--secundario);
+    margin: 10px 5px;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: var(--roboto);
+}
+.header-barra-a > .registrarse,
+.header-barra-a > .iniciar,
+.header-barra-a > .cuenta{
+    border: var(--secundario) 2px solid;
+    padding: 10px 20px;
+}
+.header-barra-hamburguesa > i{
+    font-size: 3em;
+    color: #fff;
+    display: none;
+}
+.header-barra-hamburguesa > i:hover{
+    cursor: pointer;
+}
+@media (max-width:950px){
+    .header-barra-a{
+        display: none;
+    }
+    .header-barra-hamburguesa > i{
+        display: block;
+    }
+    .header-barra-superior{
+        justify-content: space-around;
+    }
+}
+/* -BANNER */
+.header-imagenes{
+    background-image: url(http://localhost/DoFood/public/img/banner3.jpg);
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:initial;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    text-align: center;
+    min-width: 420px;
+}
+.header-imagenes > p{
+    font-size: 42px;
+    text-transform: capitalize;
+    color: var(--secundario);
+    font-weight: bold;
+    margin-top: 150px;
+    font-family: var(--rubik);
+}
+.header-input{
+    background: var(--primario);
+    height: 160px;
+    -webkit-box-shadow: -1px 1px 13px -2px #000000; 
+    box-shadow: -1px 1px 13px -2px #000000;
+}
+@media (max-width:650px){
+    .header-input{
+        height: 200px;
+    }
+    form{
+        flex-direction: column;
+    }
+    form > input[type="submit"]{
+        width: 500px;
+    }
+} 
+.header-input > p{
+    font-size: 25px;
+    padding-top: 35px;
+    margin-left: 50px;
+    color: var(--secundario);
+    font-family: var(--roboto);
+}
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form  > input[type="text"]{
+    height: 55px;
+    outline: none;
+    width: 400px;
+    border: none;
+    font-family: var(--quicksand);
+    font-size: 22px;
+    margin-top: 10px;
+    background-color: var(--secundario);
+    border-bottom: var(--secundario) 3px solid;
+    color: var(--primario);
+}
+form > input[type="submit"]{
+    height: 60px;
+    margin-top: 10px;
+    border: none;
+    width: 100px;
+    color: var(--primario);
+    font-weight: bold;
+    font-size: 20px;
+}
+form > input[type="submit"]:hover{
+    cursor: pointer;
+    background-color: #e6e6e6;
+}
+#vacio{
+    margin-top: -10px;
+    font-size: 20px;
+}
+/* CONTAINER */
+.container{
+    margin-top: 30px;
+    width: 100%;
+    min-width: 420px;
+    margin: 0 auto;
+}
+.categorias > h3{
+    font-family: var(--rubik);
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-top: 20px;
+    letter-spacing: 3px;
+}
+.categorias > p{
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 30px;
+    color: var(--primario);
+    text-decoration: underline;
+}
+.categorias{
+    margin-bottom: 10px; 
+}
+.categorias > ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    list-style: none;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.categorias > ul > li{
+    background-color: var(--primario);
+    border:#b3b0b0 1px solid;
+    margin: 0px 10px;
+    margin-bottom: 30px;
+    overflow:hidden;
+    transition: transform 0.5s ease;
+    box-sizing: border-box;
+}
+.categorias > ul > li:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.categorias > ul > li > img:hover{
+    filter: saturate(140%);
+}
+.categorias > ul > li > img{
+    object-fit: cover;
+    width: 200px;
+    height: 150px;
+}
+@media(min-width:792px) and (max-width:1160px){
+    .categorias > ul > li{
+        flex-grow: 2;
+        flex-basis: 200px;
+        max-width: 450px;
+    }
+    .categorias > ul > li > img{
+        width: 100%;
+    }
+}
+@media(max-width:792px){
+    .categorias > ul > li{
+        flex-grow: 1;
+        flex: 100%;
+    }
+    .categorias > ul > li > img{
+        object-fit: cover;
+        width: 100%;
+    }
+    .categorias > ul > li:hover{
+        transform: scale(1);
+    }
+}
+.categorias > ul > li > p{
+    text-align: center;
+    padding: 20px 0px;
+    font-family: var(--quicksand);
+    color: white;
+    font-size: 18px;
+    overflow: visible;
+}
+/* OFERTAS */
+.ofertas{
+    height: 400px;
+    background-image: url(http://localhost/DoFood/public/img/comidafamiliar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    position: relative;
+}
+.ofertas::before{
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.ofertas > h1{
+    color: white;
+    font-family: var(--quicksand);
+    font-weight: 600;
+    font-size: 3rem;
+    position: relative;
+    text-transform: capitalize;
+    padding-top: 100px;
+    
+}
+.ofertas-comida{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+@media(max-width:792px){
+    .ofertas > h1{
+        color: white;
+        font-family: var(--quicksand);
+        font-weight: 600;
+        font-size: 3rem;
+        position: relative;
+        text-transform: capitalize;
+        padding-top: 10px;
+    }
+    .ofertas-comida{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .ofertas{
+        background-position: center;
+    }
+}
+@media(max-width:1024px){
+    .ofertas{
+        background-position: center;
+    }
+}
+.ofertas-comida > p{
+    color: white;
+    margin-top: 10px;
+    font-size: 25px;
+    border: white 2px solid;
+    padding: 10px 20px;
+}
+
+/* FOOTER */
+.footer-principal{
+    background-color: #D5D8DC;
+    display: flex;
+    padding: 20px;
+}
+@media(max-width:792px){
+    .footer-principal{
+        background-color: #D5D8DC;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+.footer-principal > div > h1{
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--primario);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+.acerca{
+    flex: 3;
+}
+.acerca > p{
+    font-family: var(--rubik);
+    text-align:center;
+    padding: 0px 80px;
+}
+.contacto{
+    flex: 2;
+}
+.contacto-flex > p{
+    font-family: var(--roboto);
+    margin-right: 10px;
+}
+.contacto-flex > p > span{
+    color: var(--primario);
+    font-weight: bold;
+}
+.contacto-flex{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+@media(max-width: 1680px){
+    .contacto-flex{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+.ciudad{
+    text-align: center;
+    flex: 1;
+}
+.ciudad > p{
+    font-size: 15px;
+    color: black;
+    font-family: var(--roboto);
+}
+.derechos{
+    background-color: #808080;
+}
+.derechos > p{
+    padding: 5px 0px;
+    font-family: var(--roboto);
+    color: #d3cfcf;
+    text-align: center;
+}
+/* REGISTRO e INICIO */
+.registro-body,
+.inicio-body{
+    background-image: url(http://localhost/DoFood/public/img/fondo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.registro-body::before,
+.inicio-body::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(221, 78, 62, 0.726);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.registro-centro,
+.inicio-centro{
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.registro-form,
+.inicio-form{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primario);
+    -webkit-box-shadow: 0px 0px 37px 10px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 0px 37px 10px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 37px 10px rgba(0,0,0,0.16);
+    height: 420px;
+    width: 400px;
+    border-radius: 5px;
+    position: relative;
+}
+.registro-titulo,
+.inicio-titulo{
+    text-decoration: none;
+    color: var(--secundario);
+    font-family: var(--quicksand);
+    font-size: 30px;
+    border-bottom: var(--secundario) 2px solid;
+    margin-top: -70px;
+}
+.registro-form > input,
+.inicio-form > input{
+    width: 320px;
+    height: 50px;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    border-bottom: #fff 2px solid;
+    background-color: transparent;
+    font-size: 17px;
+    color: #fff;
+    font-family: var(--quicksand);
+    padding-top: 10px;
+}
+.registro-form > input::placeholder,
+.inicio-form > input::placeholder{
+    color: #fff;
+}
+.registro-btn,
+.inicio-btn{
+    width: 100%;
+    height: 80px;
+    border: none;
+    font-size: 30px;
+    position: absolute;
+    bottom: 0;
+    text-transform: uppercase;
+    color: var(--primario);
+    font-family: var(--quicksand);
+    background-color: #fff;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+
+.registro-form > a,
+.inicio-form > a{
+    font-family: var(--quicksand);
+    text-decoration: none;
+    align-self: flex-start;
+    margin-left: 40px;
+    margin-top: 20px;
+    color: #fff;
+}
+.registro-form > a:hover,
+.inicio-form > a:hover{
+    text-decoration: underline;
+}
+.respuesta{
+    position: relative;
+    margin-top: 20px;
+    background-color: #fff;
+    color: var(--primario);
+    padding: 10px 20px;
+    display: none;
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: var(--quicksand);
+}
+/*PRODUCTOS*/
+.container-restaurantes{
+    margin-top: 20px;
+    width: 100%;
+    min-width: 420px;
+}
+.flex-container{
+    max-width: 1800px;
+    display: flex;
+    justify-content: center;
+}
+.aside-container{
+    min-width: 270px;
+    margin-left: 20px;
+}
+.principal-container > form{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.principal-container > form > .busqueda-container{
+    align-self: flex-start;
+    background-color: #fff;
+    border: #808080 1px solid;
+    color: #000;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding-left: 40px;
+    width: 900px;
+    margin-left: 40px;
+}
+.principal-container > form > .busqueda-container:focus{
+    border: var(--primario) 1px solid;
+}
+@media(max-width:1200px){
+    .principal-container > form > .busqueda-container{
+        width: 600px;
+    }
+}
+.aside-sitio{
+    background-color: var(--primario);
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.aside-sitio > p{
+    font-size: 18px;
+    color: #000;
+    font-family: var(--roboto);
+    margin-bottom: 5px;
+}
+.aside-sitio > a{
+    color: #fff;
+    font-family: var(--rubik);
+    font-size: 15px;
+    font-weight: 600;
+}
+.aside-categorias{
+    margin-top:10px;
+    padding: 10px 20px 10px 20px;
+}
+.aside-filtro{
+    padding: 10px 20px 10px 20px;
+}
+.aside-categorias > div,
+.aside-filtro > div{
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: var(--primario) 2px solid;
+    margin-bottom: 10px;
+}
+.aside-categorias > div > p,
+.aside-filtro > div > p{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: var(--quicksand);
+}
+.aside-categorias > form,
+.aside-filtro > form{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.aside-categorias > form > label,
+.aside-filtro > form > label{
+    font-family: var(--quicksand);
+    font-size: 15px;
+}
+.aside-categorias > form > input[type="checkbox"] + label:before,
+.aside-filtro > form > input[type="checkbox"] + label:before{
+    content: "";
+	width: 26px;
+	height: 26px;
+	float: left;
+	margin: 0.5em 0.5em 0 0;
+	border: 2px solid #000;
+	background: #fff;
+}
+.aside-categorias > form > input[type="checkbox"]:checked + label:before,
+.aside-filtro > form > input[type="checkbox"]:checked + label:before{
+    border-color: var(--primario);
+}
+.aside-categorias > form > input[type="checkbox"]:checked + label:after,
+.aside-filtro > form > input[type="checkbox"]:checked + label:after{
+    content: "";
+    width: 12px;
+    height: 6px;
+    border: 4px solid var(--primario);
+    float: left;
+    margin-left: -1.95em;
+    border-right: 0;
+    border-top: 0;
+    margin-top: 1em;
+    transform: rotate(-55deg);
+}
+.aside-categorias > form > input[type="checkbox"],
+.aside-filtro > form > input[type="checkbox"]{
+    display: none;
+}
+.aside-categorias > form > input[type="checkbox"] + label,
+.aside-filtro > form > input[type="checkbox"] + label{
+    font-weight: bold;
+    line-height: 3em;
+    color: #000;
+}
+.aside-categorias > form > input[type="checkbox"]:checked + label,
+.aside-filtro > form > input[type="checkbox"]:checked + label{
+    background: var(--primario);
+    color: #fff;
+    padding: 5px 15px;
+}
+.lista-productos{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.lista-productos > li{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin:0px 10px 20px 0px;
+}
+.lista-productos > li > .minimo{
+    position: relative;
+}
+.lista-productos > li > .minimo > p{
+    position: absolute;
+    left: 170px;
+    top: -50px;
+    font-family: var(--roboto);
+    font-weight: 700;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: var(--primario) 1px solid;
+    border-radius: 20px;
+    color: var(--primario);
+    background-color: var(--secundario);
+    -webkit-box-shadow: 0px 0px 30px -4px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 0px 30px -4px rgba(0,0,0,0.25);
+    box-shadow: 0px 0px 30px -4px rgba(0,0,0,0.25);    
+}
+.lista-productos > li > img{
+    width: 350px;
+    height: 230px;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.lista-productos > li > .lista-productos-primero{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+.lista-productos > li > .lista-productos-primero > .nombre-restaurante{
+    font-family: var(--rubik);
+    font-size: 22px;
+    text-decoration: underline;
+}
+.lista-productos > li > .lista-productos-primero > .categoria-restaurante{
+    font-family: var(--rubik);
+    font-size: 13px;
+}
+.categoria-restaurante > span{
+    font-size: 16px;
+    color: #9c9c9c;
+}
+.lista-productos > li > .lista-productos-segundo{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.lista-productos > li > .lista-productos-segundo > .entrega-restaurante{
+    font-family: var(--quicksand);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--primario);
+}
+.lista-productos > li > .lista-productos-segundo > .modo-restaurante{
+    font-family: var(--quicksand);
+    font-size: 14px;
+}
+.lista-productos > li > .lista-productos-segundo > .tiempo-restaurante{
+    font-family: var(--quicksand);
+    font-size: 16px;
+    border: var(--primario) 1px solid;
+    padding: 5px 10px;
+    border-radius: 10px;
+}

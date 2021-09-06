@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>DoFood</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Roboto+Slab:wght@100;200;300;400;500;700;800&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="../../public/css/estilos.css" type="text/css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="flex-container">
+            <div class="aside-container">
+                <div class="aside-sitio">
+                    <p>Calle Perico 18009,Granada</p>
+                    <a href="index.php?pagina=inicio">Cambiar direccion</a>
+                </div>
+                <div class="aside-categorias">
+                    <div>
+                        <p>Categorias</p>
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <input type="checkbox" id="italiana" name="italiana">
+                    <label for="italiana">Comida Italiana</label><br>
+                    <input type="checkbox" id="china" name="china">
+                    <label for="china"> Comida China</label><br>
+                    <input type="checkbox" id="espanola" name="espanola">
+                    <label for="espanola">Comida Española</label><br>
+                    <input type="checkbox" id="parrilla" name="parrilla">
+                    <label for="parrilla">Parrilla</label><br>
+                    <input type="checkbox" id="hamburguesas" name="hamburguesas">
+                    <label for="hamburguesas">Hamburguesas</label><br>
+                    <input type="checkbox" id="pizzas" name="pizzas">
+                    <label for="pizzas">Pizzas</label><br>
+                    <input type="checkbox" id="kebab" name="kebab">
+                    <label for="kebab">Kebab</label><br>
+                    <input type="checkbox" id="pescado" name="pescado">
+                    <label for="pescado">Pescado</label><br>
+                </div>
+                <div class="aside-filtro">
+                    <div>
+                        <p>Filtro</p>
+                        <i class="fas fa-filter"></i>
+                    </div>
+                    
+                    <input type="checkbox" id="Abierto" name="Abierto">
+                    <label for="Abierto">Abierto</label><br>
+                    <input type="checkbox" id="entrega-gratis" name="entrega-gratis">
+                    <label for="entrega-gratis">Entrega Gratis</label><br>
+                    <input type="checkbox" id="recogida" name="recogida">
+                    <label for="recogida">Recogida</label><br>
+                    <input type="checkbox" id="domicilio" name="domicilio">
+                    <label for="domicilio">Domicilio</label><br>
+                </div>
+            </div>
+            <div class="principal-container">
+                <form action="GET">
+                    <input type="text" placeholder="Tipo de comida o restaurante" class="busqueda-container">
+                </form>
+                <ul class="lista-productos">
+                    <li>
+                        <img src="../../public/img/kfc-granada.jpeg">
+                        <div class="minimo">
+                            <p>Mínimo: 15€</p>
+                        </div>
+                        <div class="lista-productos-primero">
+                            <p class="nombre-restaurante">KFC</p>
+                            <p class="categoria-restaurante"><span>&middot</span> Hamburguesas</p>
+                        </div>
+                        <div class="lista-productos-segundo">
+                            <p class="entrega-restaurante"><i class="fas fa-archive"></i>Entrega 2.50€</p>
+                            <p class="modo-restaurante">Domicilio</p>
+                            <p class="tiempo-restaurante">40min</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+        <div class="footer-principal">
+            <div class="acerca">
+                <h1>Acerca de nosotros</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eius, amet minus optio aut similique magnam. Voluptate ipsam velit, rerum veritatis distinctio perspiciatis molestiae, accusantium culpa laborum a tempore nihil?</p>
+            </div>
+            <div class="contacto">
+                <h1>Contacto</h1>
+                <div class="contacto-flex">
+                    <p>Telefono:<span>693842384</span></p>
+                    <p>E-mail:<span>dofood@gmail.com</span></p>
+                    <p>Direccion:<span>Calle Aprile</span></p>
+                </div>
+            </div>
+            <div class="ciudad">
+                <h1>Ciudad</h1>
+                <p>Granada</p>
+            </div>
+        </div>
+        <div class="derechos">
+            <p>Todos los derechos reservados&copy; 2021</p>
+        </div>
+    </footer>
+    </div>
+    
+</body>
