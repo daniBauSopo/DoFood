@@ -21,7 +21,8 @@ session_start();
         if($_GET["pagina"] == "registro" ||
            $_GET["pagina"] == "ingreso" ||
            $_GET["pagina"] == "inicio" ||
-           $_GET["pagina"] == "productos" ){
+           $_GET["pagina"] == "productos" ||
+           $_GET["pagina"] == "pagina-producto"){
             include "paginas/".$_GET["pagina"].".php";
 
            }else{

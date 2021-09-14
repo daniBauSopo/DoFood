@@ -114,7 +114,7 @@ Class ControladorFormularios{
                 $ciudades = ModeloFormularios::mdlTraerCiudad($nombreCiudad[1],$tabla);
                 if($nombreCiudad[1] === $ciudades["localizacion_restaurante"]){
                     $_SESSION["calle"] = $ciudad;
-                    $_SESSION["nombreCiudad"] = $nombreCiudad[1];
+                    setcookie("nombreCiudad",$nombreCiudad[1],time() + (86400 * 30),"/");
                     setcookie("calleCookie",$ciudad,time() + (86400 * 30),"/");
                     echo '<script>
 					if(window.history.replaceState){
@@ -134,13 +134,42 @@ Class ControladorFormularios{
     static public function ctrTraerRestaurantes(){
         $tabla1 = "restaurantes";
         $tabla2 = "categorias";
-        $ciudad = $_SESSION["nombreCiudad"];
+        $ciudad = $_COOKIE["nombreCiudad"];
         $comida = $_GET["comida"];
-        
         $respuesta = ModeloFormularios::mdlTraerRestaurantes($tabla1,$tabla2,$ciudad,$comida);
 
         return $respuesta;
     }
+
+    static public function ctrTraerRestaurante(){
+        $restaurantes = "restaurantes";
+        $categoria = "categorias";
+        $id_res = $_GET["restaurante"];
+        $respuesta = ModeloFormularios::mdlTraerRestaurante($restaurantes,$categoria,$id_res);
+
+        return $respuesta;
+    }
+
+    static public function ctrTraerTipoComida(){
+        $comida = "comida";
+        $categoria = "categorias";
+        $restaurantes = "restaurantes";
+        $id_res = $_GET["restaurante"];
+        $respuesta = ModeloFormularios::mdlTraerTipoComida($comida,$categoria,$restaurantes,$id_res);
+
+        return $respuesta;
+    }
+
+    static public function ctrTraerComida(){
+        $comida = "comida";
+        $categoria = "categorias";
+        $restaurantes = "restaurantes";
+        $id_res = $_GET["restaurante"];
+        $respuesta = ModeloFormularios::mdlTraerComida($comida,$categoria,$restaurantes,$id_res);
+
+        return $respuesta;
+    }
+    
 }
 
 

@@ -86,7 +86,7 @@ require_once "conexion.php";
             if(!isset($comida)){
                 $sql = "SELECT $tabla1.*,$tabla2.nombre_categoria 
                 FROM $tabla1,$tabla2 WHERE $tabla2.id_categoria = $tabla1.id_categoria_restaurante 
-                AND $tabla1.localizacion_restaurante = '$ciudad'";
+                AND $tabla1.localizacion_restaurante = '$ciudad' ORDER BY RAND()";
 
                 $res = $stmt->query($sql);
                 while($dato = $res->fetch_assoc()){
@@ -97,12 +97,57 @@ require_once "conexion.php";
                         FROM $tabla1,$tabla2 WHERE $tabla2.id_categoria = $tabla1.id_categoria_restaurante 
                         AND $tabla1.id_categoria_restaurante = $comida
                         AND $tabla1.localizacion_restaurante = '$ciudad'";
-
                 $res = $stmt->query($sql);
                 while($dato = $res->fetch_assoc()){
                     $array[] = $dato;
                 }
-            } 
+            }
+            return $array;
+            
+            $stmt->close();
+        }
+
+        static public function mdlTraerRestaurante($restaurantes,$categorias,$id_res){
+            $stmt = Conexion::conectar();
+            $sql = "SELECT $restaurantes.*,$categorias.nombre_categoria FROM $restaurantes,$categorias WHERE $restaurantes.id_restaurante = $id_res";
+            
+            $res = $stmt->query($sql);
+
+            $dato = $res->fetch_assoc();
+
+            return $dato;
+            $stmt->close();
+        }
+
+        static public function mdlTraerTipoComida($comida,$categorias,$restaurantes,$id_res){
+            $stmt = Conexion::conectar();
+            $sql = "SELECT DISTINCT $comida.tipo_comida FROM $comida,$categorias,$restaurantes 
+            WHERE $comida.id_comida_categoria = $categorias.id_categoria 
+            AND $restaurantes.id_categoria_restaurante = $categorias.id_categoria 
+            AND $restaurantes.id_restaurante = $id_res ORDER BY $comida.tipo_comida ASC";
+            
+            $res = $stmt->query($sql);
+
+            while($dato = $res->fetch_assoc()){
+                $array[] = $dato;
+            }
+            return $array;
+            
+            $stmt->close();
+        }
+
+        static public function mdlTraerComida($comida,$categorias,$restaurantes,$id_res){
+            $stmt = Conexion::conectar();
+            $sql = "SELECT $comida.* FROM $comida,$categorias,$restaurantes 
+            WHERE $comida.id_comida_categoria = $categorias.id_categoria 
+            AND $restaurantes.id_categoria_restaurante = $categorias.id_categoria 
+            AND $restaurantes.id_restaurante = $id_res";
+            
+            $res = $stmt->query($sql);
+
+            while($dato = $res->fetch_assoc()){
+                $array[] = $dato;
+            }
             return $array;
             
             $stmt->close();

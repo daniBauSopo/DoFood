@@ -15,9 +15,20 @@
                     </div>
                     <script>
                         function mostrarProductos(str){
+                            let listaAjax = document.querySelector("ul.lista-productos");
                             if(str == ""){
-                                document.querySelector(".lista-productos").innerHTML = "";
+                                listaAjax.innerHTML = "";
                                 return;
+                            }else{
+                                var xhr = new XMLHttpRequest();
+                                xhr.onreadystatechange = function(){
+                                    if(this.readyState == 4 && this.status == 200){
+                                        listaAjax.innerHTML = this.responseText;
+                                        
+                                    }
+                                };
+                                xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/lista-productos.php?comida="+str,true);
+                                xhr.send();
                             }
                         }
                     </script>
@@ -26,16 +37,16 @@
                             foreach($res as $i){
                                 if(isset($_GET["comida"])){
                                     if($i[0] == $_GET["comida"]){?>
-                                        <input type="checkbox" id=<?php echo $i[0]; ?> name="tipos[]" value=<?php echo $i[0];?> checked>
-                                        <label for=<?php echo $i[0]; ?>><?php echo $i[1]; ?></label><br>
+                                        <input type="checkbox" id=<?php echo $i[0]; ?> name="tipos[]" value=<?php echo $i[0];?> checked onclick="mostrarProductos(this.value)">
+                                        <label for=<?php echo $i[0]; ?>><?php echo $i[1]." "; ?></label><br>
                                 <?php }else{ ?>
-                                        <input type="checkbox" id=<?php echo $i[0]; ?> name="tipos[]" value=<?php echo $i[0];?>>
-                                        <label for=<?php echo $i[0]; ?>><?php echo $i[1]; ?></label><br>
+                                        <input type="checkbox" id=<?php echo $i[0]; ?> name="tipos[]" value=<?php echo $i[0];?> onclick="mostrarProductos(this.value)">
+                                        <label for=<?php echo $i[0]; ?>><?php echo $i[1]." "; ?></label><br>
                                       <?php  }  
                                 }elseif(!isset($_GET["comida"])){?>
-                                    <input type="checkbox" id=<?php echo $i[0]; ?> name="tipos[]" value=<?php echo $i[0];?>>
-                                    <label for=<?php echo $i[0]; ?>><?php echo $i[1]; ?></label><br>
-                             <?php   } 
+                                    <input type="checkbox" id=<?php echo $i[0]; ?> name="tipos[]" value=<?php echo $i[0];?> onclick="mostrarProductos(this.value)">
+                                    <label for=<?php echo $i[0]; ?>><?php echo $i[1]." "; ?></label><br>
+                             <?php   }
                             }
                         ?>
                     </form>
@@ -62,27 +73,18 @@
                     <input type="text" placeholder="Categoría o restaurante" class="busqueda-container">
                 </form>
                 <ul class="lista-productos">
-                    <?php 
-                       $val = ControladorFormularios::ctrTraerRestaurantes();
-                        foreach($val as $res){?>
-                        <li>
-                            <img src= <?php echo "http://localhost/DoFood/public/img/restaurantes/".$res["foto_restaurante"]; ?>>
-                            <div class="minimo">
-                                <p>Mínimo:<?php echo " ".$res["minimo"]."€"; ?></p>
-                            </div>
-                            <div class="lista-productos-primero">
-                                <p class="nombre-restaurante"><?php echo $res["nombre_restaurante"]; ?></p>
-                                <p class="categoria-restaurante"><span>&middot</span> <?php echo $res["nombre_categoria"]; ?></p>
-                            </div>
-                            <div class="lista-productos-segundo">
-                                <p class="entrega-restaurante"><i class="fas fa-archive"></i>Entrega <?php if($res["precio_entrega"] == 0){echo "gratis";}else{echo $res["precio_entrega"]."€";} ?></p>
-                                <p class="modo-restaurante"><?php echo $res["modo_entrega"]; ?></p>
-                                <p class="tiempo-restaurante"><?php echo $res["tiempo_entrega"]."min"; ?></p>
-                            </div>
-                        </li>
-                        <?php }
-                        
-                        ?>
+                    <?php
+                            include "lista-productos.php";
+                            echo "<script>
+                            let listaProd = document.querySelectorAll('.lista-productos > li');
+                            for (let i = 0; i < listaProd.length; i++) {
+                                listaProd[i].addEventListener('click',function(){
+                                    let id_Producto = listaProd[i].id;
+                                    window.location = 'index.php?pagina=pagina-producto&restaurante='+id_Producto;
+                                })
+                            }
+                            </script>";
+                    ?>
                 </ul>
             </div>
         </div>

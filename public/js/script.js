@@ -17,6 +17,37 @@ cerrarMenu.addEventListener('click',function(){
             menu.style.display="none";
     }
 });
+
+const links = document.querySelectorAll(".header-barra-a > a.contacto");
+for(const link of links){
+        link.addEventListener("click", clickHandler);
+}
+const linkers = document.querySelectorAll(".nav-producto > a.tipo-comida");
+for(const link of linkers){
+        link.addEventListener("click", clickHandler);
+}
+function clickHandler(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        const offsetTop = document.querySelector(href).offsetTop;
+       
+        scroll({
+          top: offsetTop,
+          behavior: "smooth"
+        });
+      }
+// let checkCategorias = document.querySelectorAll(".aside-categorias > form > input");
+// for(const check of checkCategorias){
+//         console.log(check.checked);
+//         if(check.checked == false){
+//                 console.log("ola estoy unchecked");
+//         }else if(check.checked == true){
+//                 alert("ola estoy checked");
+//         }
+// }
+
+
+
 // let lista = document.querySelectorAll('.categorias > ul >li');
 // let buscador = document.getElementById('nombreCiudad').value;
 // let vacio = document.querySelector('#vacio');

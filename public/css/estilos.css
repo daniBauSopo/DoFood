@@ -102,6 +102,12 @@ header{
     border: var(--secundario) 2px solid;
     padding: 10px 20px;
 }
+.header-barra-a > .registrarse:hover,
+.header-barra-a > .iniciar:hover{
+    background-color: var(--secundario);
+    border: var(--primario) 2px solid;
+    color: var(--primario);
+}
 .header-barra-hamburguesa > i{
     font-size: 3em;
     color: #fff;
@@ -582,6 +588,7 @@ form > input[type="submit"]:hover{
     color: #000;
     font-family: var(--roboto);
     margin-bottom: 5px;
+    text-transform: capitalize;
 }
 .aside-sitio > a{
     color: #fff;
@@ -673,6 +680,8 @@ form > input[type="submit"]:hover{
 }
 .lista-productos > li{
     border-top-left-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
     border-top-right-radius: 10px;
     margin:0px 10px 20px 0px;
 }
@@ -699,10 +708,14 @@ form > input[type="submit"]:hover{
     width: 350px;
     height: 230px;
     background-repeat: no-repeat;
+    transition: transform .5s ease;
     object-fit: cover;
     clip-path: polygon(0 0, 100% 0, 100% 87%, 0% 100%);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+.lista-productos > li > img:hover{
+    transform: scale(1.05);
 }
 .lista-productos > li > .lista-productos-primero{
     display: flex;
@@ -746,4 +759,161 @@ form > input[type="submit"]:hover{
     border: var(--primario) 1px solid;
     padding: 5px 10px;
     border-radius: 10px;
+}
+/* PAGINA PRODUCTO */
+.container-producto{
+    margin: 0 auto;
+    max-width: 1600px;
+    position: relative;
+}
+.imagen-producto{
+    height: 240px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -100px;
+    filter: brightness(0.4);
+    position:relative;
+}
+.producto-flex{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
+    gap: 20px;
+    position: relative;
+    top: -90px;
+    left: 0;
+    width:100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.producto-todo{
+    flex-grow: 2;
+    flex-shrink: 2;
+}
+.producto-info{
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 50px 15px rgba(0,0,0,0.15); 
+    box-shadow: 0px 0px 50px 15px rgba(0,0,0,0.15);
+}
+.producto-cesta{
+    background-color: #fff;
+    flex-grow: 1;
+    flex-shrink: 3;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.20); 
+    box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.20);
+}
+.producto-cesta > .titulo-cesta {
+    color: var(--primario);
+    font-family: var(--rubik);
+    font-size: 30px;
+    font-weight: 900;
+    padding: 20px 0px 10px 0px;
+}
+.producto-cesta > .gasto-minimo{
+    font-family: var(--quicksand);
+    font-size: 13px;
+    text-decoration: underline;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+.producto-cesta > .producto-cesta-llena{
+    
+}
+.producto-info > .producto-info-nombre{
+    font-family: var(--rubik);
+    font-size: 40px;
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+.producto-info > .producto-info-calle{
+    font-family: var(--rubik);
+    font-size: 20px;
+    text-transform: capitalize;
+    padding-bottom: 8px;
+}
+.producto-info > .producto-info-mas{
+    font-family: var(--roboto);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: var(--primario);
+}
+.nav-producto{
+    margin-top: 30px;
+    margin-bottom: -50px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    border-bottom: var(--primario) 2px solid;
+    border-top: var(--primario) 2px solid;
+}
+.nav-producto > a{
+    text-decoration: none;
+    font-family: var(--quicksand);
+    font-size: 22px;
+    width: 100%;
+    text-align: center;
+    color: var(--primario);;
+    padding: 20px 10px;
+}
+.nav-producto > a:hover{
+    color:#fff;
+    background-color: var(--primario);;
+}
+.producto-comidas{
+    margin-top: 80px;
+}
+.producto-comidas > p{
+    padding: 10px 20px;
+    border-bottom: #000 2px solid;
+    font-family: var(--rubik);
+    font-size: 24px;
+    font-weight: 700;
+}
+.producto-comidas > .lista-comida{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline-start: 0px;
+    gap: 20px;
+}
+.lista-comida > li{
+    padding: 20px;
+    border-radius: 20px;
+    flex: 1 0 auto;
+    min-width: 300px;
+    max-width: 400px;
+    -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.08); 
+    box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.08);
+}
+.lista-comida > li > .nombre-comida{
+    margin-bottom: 15px;
+    font-family: var(--rubik);
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 70px;
+}
+.precio-añadir{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.precio-añadir > .precio-comida{
+    font-family: var(--rubik);
+    font-size: 17px;
+}
+.precio-añadir > a{
+    font-family: var(--rubik);
+    font-size: 16px;
+    background-color: var(--primario);
+    padding: 10px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #fff;
 }

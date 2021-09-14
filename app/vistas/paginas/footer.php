@@ -4,7 +4,7 @@
             <h1>Acerca de nosotros</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eius, amet minus optio aut similique magnam. Voluptate ipsam velit, rerum veritatis distinctio perspiciatis molestiae, accusantium culpa laborum a tempore nihil?</p>
         </div>
-        <div class="contacto">
+        <div class="contacto" id="contacto">
             <h1>Contacto</h1>
             <div class="contacto-flex">
                 <p>Telefono:<span>693842384</span></p>

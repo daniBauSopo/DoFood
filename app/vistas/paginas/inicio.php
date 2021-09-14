@@ -25,7 +25,6 @@
                 let lista = document.querySelectorAll('.categorias > ul >li');
                 let buscador = document.getElementById('nombreCiudad');
                 let vacio = document.querySelector('#vacio');
-                console.log(buscador);
                 for (let i = 0; i < lista.length; i++) {
                     lista[i].addEventListener('click',function(){
                     if(buscador!=''){
