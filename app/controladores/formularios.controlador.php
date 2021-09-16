@@ -39,8 +39,9 @@ Class ControladorFormularios{
                 $valor = $_POST["ingresoEmail"];
 
                 $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla,$valor);
-                if($respuesta['email'] == $correo && $respuesta['pass'] == $pass){
+                if($respuesta['email'] == $correo && $respuesta['pass'] == $pass && !isset($_SESSION["añadir"])){
                     $_SESSION["validarIngreso"] = "ok";
+                    $_SESSION["añadir"]="";
                     setcookie("CorreoIngreso",$correo,time() + (86400 * 30),"/");
                     echo '<script>
 					if(window.history.replaceState){
@@ -50,6 +51,19 @@ Class ControladorFormularios{
 					}
 
 					window.location = "index.php?pagina=inicio";
+
+				    </script>';
+                }else if($respuesta['email'] == $correo && $respuesta['pass'] == $pass && isset($_SESSION["añadir"])){
+                    $_SESSION["validarIngreso"] = "ok";
+                    setcookie("CorreoIngreso",$correo,time() + (86400 * 30),"/");
+                    echo '<script>
+					if(window.history.replaceState){
+		
+						window.history.replaceState(null,null,window.location.href);
+		
+					}
+
+					window.location = "index.php?pagina=pagina-producto&restaurante='.$_SESSION["añadir"].'";
 
 				    </script>';
                 }else{

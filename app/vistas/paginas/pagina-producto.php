@@ -30,7 +30,33 @@
                             <p class="nombre-comida"><?php echo $comida["nombre_comida"]; ?></p>
                             <div class="precio-añadir">
                                 <p class="precio-comida"><?php echo $comida["precio_comida"]."€"; ?></p>
-                                <a href="#">Añadir</a>
+                                <?php if(!isset($_COOKIE["CorreoIngreso"])){ 
+                                    $id_res=$_GET["restaurante"];
+                                    $_SESSION["añadir"] = $id_res;?>
+                                    <a href="index.php?pagina=ingreso">Añadir</a>
+                                <?php }else{ ?>
+                                    <a href="#">Añadir</a>
+                                    <script>
+                                    function mostrarPedido(str){
+                                        let ProductoAjax = document.querySelector(".producto-cesta-llena");
+                                        if(str == ""){
+                                            ProductoAjax.innerHTML = "";
+                                            return;
+                                        }else{
+                                            var xhr = new XMLHttpRequest();
+                                            xhr.onreadystatechange = function(){
+                                                if(this.readyState == 4 && this.status == 200){
+                                                    ProductoAjax.innerHTML = this.responseText;
+
+                                                }
+                                            };
+                                            xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/lista-productos.php?comida="+str,true);
+                                            xhr.send();
+                                        }
+                                    }
+                                    </script>
+                                <?php    
+                                } ?> 
                             </div>
                         </li>
                     <?php }
