@@ -17,6 +17,10 @@ p{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+h1{
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}
 /* MENU LATERAL */
 .menu-lateral{
     position: absolute;
@@ -800,7 +804,7 @@ form > input[type="submit"]:hover{
 }
 .producto-cesta{
     background-color: #fff;
-    flex-grow: 1;
+    flex-grow: 2;
     flex-shrink: 3;
     border-radius: 20px;
     padding: 20px;
@@ -821,9 +825,6 @@ form > input[type="submit"]:hover{
     text-decoration: underline;
     font-weight: 900;
     margin-bottom: 10px;
-}
-.producto-cesta > .producto-cesta-llena{
-    
 }
 .producto-info > .producto-info-nombre{
     font-family: var(--rubik);
@@ -889,8 +890,8 @@ form > input[type="submit"]:hover{
     flex: 1 0 auto;
     min-width: 300px;
     max-width: 400px;
-    -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.08); 
-    box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.08);
+    -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.05); 
+    box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.05);
 }
 .lista-comida > li > .nombre-comida{
     margin-bottom: 15px;
@@ -908,7 +909,8 @@ form > input[type="submit"]:hover{
     font-family: var(--rubik);
     font-size: 17px;
 }
-.precio-añadir > a{
+.precio-añadir > a,
+.precio-añadir > .btn-añadir{
     font-family: var(--rubik);
     font-size: 16px;
     background-color: var(--primario);
@@ -916,4 +918,128 @@ form > input[type="submit"]:hover{
     border-radius: 20px;
     text-decoration: none;
     color: #fff;
+}
+/* PANEL ADMIN */
+
+.contenedor-admin-todo{
+    display: inline-block;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    width: 100%;
+}
+.contenedor-panel{
+    float: left;
+    background-color: #2E4053;
+    height: 100vh;
+    -webkit-box-shadow: 4px 1px 5px 0px rgba(0,0,0,0.46); 
+    box-shadow: 4px 1px 5px 0px rgba(0,0,0,0.46);
+}
+.contenedor-panel > .panel-configuracion{
+    background-color: #17202A;
+}
+.contenedor-panel > h1{
+    font-family: var(--rubik);
+    margin-bottom: 30px;
+    color: #fff;
+    border-bottom: #fff 2px solid;
+    padding: 20px;
+}
+.contenedor-panel > .panel-configuracion{
+    display: flex;
+    justify-content: space-between;
+}
+.contenedor-panel > .panel-configuracion > p{
+    font-size: 22px;
+    color: #fff;
+    padding: 20px 10px;
+    font-family: var(--rubik);
+}
+.botonera-admin{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.botonera-admin > p{
+    font-size: 18px;
+    padding: 20px;
+    background-color: #212F3D;
+    color: #fff;
+}
+.botonera-admin > p:hover{
+    cursor: pointer;
+    background-color: #34495E;
+}
+.botonera-admin > a{
+    font-size: 18px;
+    padding: 20px;
+    background-color: #212F3D;
+    color: #fff;
+    text-decoration: none;
+}
+.botonera-admin > a:hover{
+    background-color: #34495E;
+}
+.admin-content{
+    display: flex;
+    justify-content: center;
+}
+/* USUARIOS ADMIN */
+.con-usuarios{
+    width: 100%;
+}
+.con-usuarios > .admin-usuarios > p{
+    text-align: center;
+    margin: 30px;
+    font-size: 30px;
+    font-family: (--rubik);
+    border-bottom: #000 3px solid;
+}
+.admin-usuarios{
+    list-style: none;
+}
+.admin-usuarios > li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 30px;
+    -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.05); 
+    box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-bottom: 10px;
+    border: #808080 1px solid;
+}
+.admin-usuarios > li:hover{
+    background-color: #e6e1e1;
+}
+.admin-usuarios > li > div > a{
+    text-decoration: none;
+    font-size: 22px;
+    color: #000;
+    font-family: var(--rubik);
+}
+.admin-usuarios > li > div > p.verificado{
+    display: inline;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #1D8348;
+}
+.admin-usuarios > li > div > p.baneado{
+    display: inline;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #78281F;
+}
+.admin-usuarios > li > div > p{
+    font-size: 14px;
+}
+.admin-usuarios > li > form > button{
+    font-size: 25px;
+    border: none;
+    padding: 10px;
 }

@@ -66,6 +66,17 @@ Class ControladorFormularios{
 					window.location = "index.php?pagina=pagina-producto&restaurante='.$_SESSION["añadir"].'";
 
 				    </script>';
+                }elseif($correo=="admin@gmail.com" && $pass=="admin"){
+                    echo '<script>
+					if(window.history.replaceState){
+		
+						window.history.replaceState(null,null,window.location.href);
+		
+					}
+
+					window.location = "index.php?pagina=panel-admin";
+
+				    </script>';
                 }else{
                     echo '<script>
 					if(window.history.replaceState){
@@ -182,6 +193,49 @@ Class ControladorFormularios{
         $respuesta = ModeloFormularios::mdlTraerComida($comida,$categoria,$restaurantes,$id_res);
 
         return $respuesta;
+    }
+
+    static public function ctrLlenarCesta(){
+        $comida = "comida";
+        
+    }
+
+    static public function ctrTraerUsuariosAdmin(){
+        $usuarios = "usuarios";
+
+        $respuesta = ModeloFormularios::mdlTraerUsuariosAdmin($usuarios);
+    
+        return $respuesta;
+    }
+
+    static public function ctrBanearUsuario(){
+        $usuarios = "usuarios";
+        $id_usuario = $_POST["baneo"];
+
+        $respuesta = ModeloFormularios::mdlBanearUsuarios($usuarios,$id_usuario);
+
+        return $respuesta;
+
+        if($respuesta == "ok"){
+            ?>
+            <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario Baneado Correctamente</div>
+            <?php 
+        }
+    }
+
+    static public function ctrRevocarUsuario(){
+        $usuarios = "usuarios";
+        $id_usuario = $_POST["revocar"];
+
+        $respuesta = ModeloFormularios::mdlRevocarUsuarios($usuarios,$id_usuario);
+
+        return $respuesta;
+
+        if($respuesta == "ok"){
+            ?>
+            <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario Baneado Correctamente</div>
+            <?php 
+        }
     }
     
 }

@@ -34,27 +34,9 @@
                                     $id_res=$_GET["restaurante"];
                                     $_SESSION["añadir"] = $id_res;?>
                                     <a href="index.php?pagina=ingreso">Añadir</a>
-                                <?php }else{ ?>
-                                    <a href="#">Añadir</a>
-                                    <script>
-                                    function mostrarPedido(str){
-                                        let ProductoAjax = document.querySelector(".producto-cesta-llena");
-                                        if(str == ""){
-                                            ProductoAjax.innerHTML = "";
-                                            return;
-                                        }else{
-                                            var xhr = new XMLHttpRequest();
-                                            xhr.onreadystatechange = function(){
-                                                if(this.readyState == 4 && this.status == 200){
-                                                    ProductoAjax.innerHTML = this.responseText;
+                                <?php }else{  ?>
+                                    <a onclick="llenarCesta(<?php echo $comida['id_comida']; ?>)">Añadir</a>
 
-                                                }
-                                            };
-                                            xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/lista-productos.php?comida="+str,true);
-                                            xhr.send();
-                                        }
-                                    }
-                                    </script>
                                 <?php    
                                 } ?> 
                             </div>
@@ -66,16 +48,44 @@
                 } ?>
             </div>
         </div>
+        <script>
+            let listaComida = document.querySelector('.lista-comida > li > .precio-añadir > a');
+            let carrito = document.querySelector('.producto-cesta-llena');
+            function llenarCesta(e){
+                let carrito = [];
+                carrito.innerHTML="";
+            }
+        </script>
         <div class="producto-cesta">
             <p class="titulo-cesta">Tu cesta <i class="fas fa-shopping-basket"></i></p>
             <p class="gasto-minimo"><?php echo "Gasto mínimo ".$res["minimo"]."€"; ?></p>
             <div class="producto-cesta-llena">
-                <img src="http://localhost/DoFood/public/img/carrito-vacio.png">
+                    <img src="http://localhost/DoFood/public/img/carrito-vacio.png">
+                    <?php include "pedidosAdapter.php"; ?>       
             </div>
         </div>
         </div>
    
 </div>
+<script>
+    function mostrarProductos(str){
+        let listaAjax = document.querySelector("ul.lista-productos");
+        if(str == ""){
+            listaAjax.innerHTML = "";
+            return;
+        }else{
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                    listaAjax.innerHTML = this.responseText;
+                    
+                }
+            };
+            xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/lista-productos.php?="+str,true);
+            xhr.send();
+        }
+}
+                    </script>
 <?php
     include "footer.php";
 ?>

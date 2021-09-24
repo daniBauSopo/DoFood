@@ -153,5 +153,39 @@ require_once "conexion.php";
             $stmt->close();
         }
 
+        static public function mdlTraerUsuariosAdmin($usuarios){
+            $stmt = Conexion::conectar();
+            $sql = "SELECT * FROM $usuarios";
+
+            $res = $stmt->query($sql);
+
+            $dato = $res->fetch_all();
+
+            return $dato;
+            $stmt->close();
+        }
+
+        static public function mdlBanearUsuarios($usuarios,$id_usuario){
+            $stmt = Conexion::conectar();
+            $sql = "UPDATE $usuarios SET bloqueado = 1 WHERE id = '$id_usuario' AND bloqueado = 0";
+
+            if($stmt->query($sql) === TRUE){
+                return "ok";
+            }else{
+                echo "Error: " . $sql . "<br>" . $stmt->error;
+            }
+        }
+
+        static public function mdlRevocarUsuarios($usuarios,$id_usuario){
+            $stmt = Conexion::conectar();
+            $sql = "UPDATE $usuarios SET bloqueado = 0 WHERE id = '$id_usuario' AND bloqueado = 1";
+
+            if($stmt->query($sql) === TRUE){
+                return "ok";
+            }else{
+                echo "Error: " . $sql . "<br>" . $stmt->error;
+            }
+        }
+
     }
 
