@@ -909,7 +909,7 @@ form > input[type="submit"]:hover{
     font-family: var(--rubik);
     font-size: 17px;
 }
-.precio-añadir > a,
+.precio-añadir > .añadir,
 .precio-añadir > .btn-añadir{
     font-family: var(--rubik);
     font-size: 16px;
@@ -918,7 +918,15 @@ form > input[type="submit"]:hover{
     border-radius: 20px;
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
+    border: none;
 }
+/* PEDIDO ADAPTER */
+.btn-comida-adapter{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 /* PANEL ADMIN */
 
 .contenedor-admin-todo{

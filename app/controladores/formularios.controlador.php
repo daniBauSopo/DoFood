@@ -195,11 +195,6 @@ Class ControladorFormularios{
         return $respuesta;
     }
 
-    static public function ctrLlenarCesta(){
-        $comida = "comida";
-        
-    }
-
     static public function ctrTraerUsuariosAdmin(){
         $usuarios = "usuarios";
 
@@ -236,6 +231,10 @@ Class ControladorFormularios{
             <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario Baneado Correctamente</div>
             <?php 
         }
+    }
+
+    static public function ctrLlenarCesta(){
+        $usuarios = "usuarios";
     }
     
 }
