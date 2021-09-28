@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+use function PHPSTORM_META\type;
 
 error_reporting (5);
 
@@ -234,7 +236,20 @@ Class ControladorFormularios{
     }
 
     static public function ctrLlenarCesta(){
-        $usuarios = "usuarios";
+        $comida = "comida";
+        $id_comida = $_GET["idProductoCesta"];
+
+
+        $respuesta = ModeloFormularios::mdlLlenarCesta($comida,$id_comida);
+
+        return $respuesta;
+    }
+
+    static public function ctrOtenerDatosComidaCesta(){
+        $id_com = $_SESSION["idComidaSesion"];
+        $respuesta = ModeloFormularios::mdlOtenerDatosComidaCesta($id_com);
+
+        return $respuesta;
     }
     
 }

@@ -38,11 +38,10 @@
                                     function goIndex(){
                                         window.location.replace("index.php?pagina=ingreso");
                                     }
-                                   
                                     </script>
-                                <?php }else{  ?>
+                                <?php }else{ ?>
                                     <button class="añadir" onclick="llenarCesta(<?php echo $comida['id_comida']; ?>);">Añadir</button>
-
+                                    
                                 <?php    
                                 } ?> 
                             </div>
@@ -55,8 +54,11 @@
             </div>
         </div>
         <script>
+            let contenedor = []
             function llenarCesta(str){
                 let carrito = document.querySelector('.producto-cesta-llena');
+                contenedor.push(str)
+                console.log(contenedor)
                 if(str == ""){
                     carrito.innerHTML = "";
                     return;
@@ -65,10 +67,10 @@
                     xhr.onreadystatechange = function(){
                         if(this.readyState == 4 && this.status == 200){
                         carrito.innerHTML = this.responseText;
-                    
+
                         }
                 };
-                xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/pedidosAdapter.php?idProductoCesta="+str,true);
+                xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/pedidosAdapter.php?idProductoCesta="+contenedor,true);
                 xhr.send();
                 }
             }
@@ -76,11 +78,11 @@
         <div class="producto-cesta">
             <p class="titulo-cesta">Tu cesta <i class="fas fa-shopping-basket"></i></p>
             <p class="gasto-minimo"><?php echo "Gasto mínimo ".$res["minimo"]."€"; ?></p>
-            <div class="producto-cesta-llena">
+            <ul class="producto-cesta-llena">
                 <img src="http://localhost/DoFood/public/img/carrito-vacio.png">   
-            </div>
+            </ul>
         </div>
-        </div>
+    </div>
    
 </div>
 <?php

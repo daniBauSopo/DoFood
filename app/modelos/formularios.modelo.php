@@ -187,5 +187,38 @@ require_once "conexion.php";
             }
         }
 
-    }
+        static public function mdlLlenarCesta($comida,$id_comida){
+            $stmt = Conexion::conectar();
+            $arrayIds = [];
+            $array = explode(",",$id_comida);
+            for($i = 0 ; $i<count($arrayIds);$i++){
+                $id = $arrayIds[$i];
+                
+            }
+            $sql = "SELECT * FROM $comida WHERE $comida.id_comida = '$id'";
 
+            $res = $stmt->query($sql);
+
+            while($dato = $res->fetch_all()){
+                $array[] = $dato;
+            }
+            
+            return $array;
+               
+
+            $stmt->close(); 
+        }
+
+        static public function mdlOtenerDatosComidaCesta($id){
+            $stmt = Conexion::conectar();
+            $sql = "SELECT * FROM comida WHERE comida.id_comida = '$id'";
+
+            $res = $stmt->query($sql);
+
+            $dato = $res->fetch_assoc();
+
+            return $dato;
+            $stmt->close();
+        }
+
+    }
