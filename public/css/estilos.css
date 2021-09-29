@@ -923,16 +923,22 @@ form > input[type="submit"]:hover{
     cursor: pointer;
     border: none;
 }
-.producto-cesta-llena{
+.listar-cesta{
     list-style: none;
     margin-block-start: 0em;
     margin-block-end: 0em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 0px;
+    overflow-y: auto;
+    height: 400px;
 }
-.producto-cesta-llena > li{
+.listar-cesta > li{
     padding: 20px 0px;
+    border-bottom: #b3b0b0 1px solid;
+}
+.listar-cesta > li:last-child{
+    border-bottom: none;
 }
 /* PEDIDO ADAPTER */
 .comida-adapter{
@@ -981,6 +987,15 @@ form > input[type="submit"]:hover{
 .btn-comida-adapter > input[type=number]{
     -moz-appearance:textfield; 
 }
+.producto-cesta-llena > .total-pago{
+    border-top: #000 2px solid;
+    font-family: var(--roboto);
+    font-size: 20px;
+    color: #000;
+    padding-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .producto-cesta-llena > button{
     color: #fff;
     background-color: var(--primario);
@@ -990,6 +1005,10 @@ form > input[type="submit"]:hover{
     font-size: 30px;
     padding: 10px 0px;
     margin-top: 20px;
+}
+.producto-cesta-llena > button:hover{
+    background-color: #ad3325;
+    cursor: pointer;
 }
 /* PANEL ADMIN */
 

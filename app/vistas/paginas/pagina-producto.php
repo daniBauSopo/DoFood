@@ -78,9 +78,9 @@
         <div class="producto-cesta">
             <p class="titulo-cesta">Tu cesta <i class="fas fa-shopping-basket"></i></p>
             <p class="gasto-minimo"><?php echo "Gasto mínimo ".$res["minimo"]."€"; ?></p>
-            <ul class="producto-cesta-llena">
+            <div class="producto-cesta-llena">
                 <img src="http://localhost/DoFood/public/img/carrito-vacio.png">   
-            </ul>
+            </div>
         </div>
     </div>
    

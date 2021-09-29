@@ -172,6 +172,7 @@ Class ControladorFormularios{
         $restaurantes = "restaurantes";
         $categoria = "categorias";
         $id_res = $_GET["restaurante"];
+        
         $respuesta = ModeloFormularios::mdlTraerRestaurante($restaurantes,$categoria,$id_res);
 
         return $respuesta;
@@ -251,6 +252,7 @@ Class ControladorFormularios{
 
         return $respuesta;
     }
+
     
 }
 

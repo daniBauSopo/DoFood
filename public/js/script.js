@@ -38,7 +38,8 @@ function clickHandler(e) {
       }
 function preDefault(e){
         e.preventDefault();
-}
+} 
+
 // let checkCategorias = document.querySelectorAll(".aside-categorias > form > input");
 // for(const check of checkCategorias){
 //         console.log(check.checked);
