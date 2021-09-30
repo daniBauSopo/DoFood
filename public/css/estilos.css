@@ -1159,3 +1159,100 @@ form > input[type="submit"]:hover{
     border: none;
     padding: 10px;
 }
+/* PEDIDOS ADMIN */
+.con-pedidos{
+    width: 100%;
+}
+.con-pedidos > p{
+    text-align: center;
+    margin: 30px;
+    font-size: 30px;
+    font-family: var(--roboto);
+}
+.admin-pedidos{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.admin-pedidos > li{
+    border-radius: 20px;
+    border: #808080 1px solid;
+    padding: 30px;
+    max-width: 240px;
+}
+.admin-pedidos > li > .pedido-primera-parte > p{
+    font-family: var(--rubik);
+    font-size: 20px;
+    padding: 5px;
+}
+.admin-pedidos > li > .pedido-primera-parte > p.id-pedido{
+    font-weight: bold;
+    font-size: 25px;
+    border-bottom: #000 1px solid;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.admin-pedidos > li > .pedido-segunda-parte{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.admin-pedidos > li > .pedido-segunda-parte > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}
+.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > .estado-pedido{
+    padding: 5px;
+    background-color: #1D8348;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > form > .btn-cambiar-estado{
+    border: #000 1px solid;
+    font-size: 18px;
+    font-family: var(--rubik);
+}
+.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > form > .btn-cambiar-estado:hover{
+    cursor: pointer;
+    background-color: rgb(202, 202, 202);
+}
+.admin-pedidos > li > .pedido-segunda-parte > p{
+    font-family: var(--rubik);
+    font-size: 20px;
+    padding: 5px;
+}
+.admin-pedidos > li > .pedido-segunda-parte > div > p{
+    font-family: var(--rubik);
+    font-size: 20px;
+    padding: 5px;
+}
+.admin-pedidos > li > .pedido-segunda-parte > div.sub-segundo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+.admin-pedidos > li > .pedido-tercera-parte{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-top: #17202A 2px solid;
+    margin-top: 10px;
+}
+.admin-pedidos > li > .pedido-tercera-parte > p:first-child{
+    padding-top: 10px;
+}
+.admin-pedidos > li > .pedido-tercera-parte > p{
+    font-size: 30px;
+    font-family: var(--rubik);
+}

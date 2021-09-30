@@ -205,6 +205,16 @@ Class ControladorFormularios{
         return $respuesta;
     }
 
+    static public function ctrTraerPedidosAdmin(){
+        $pedidos = "pedidos";
+        $usuarios = "usuarios";
+        $restaurantes = "restaurantes";
+
+        $respuesta = ModeloFormularios::mdlTraerPedidosAdmin($usuarios,$pedidos,$restaurantes);
+    
+        return $respuesta;
+    }
+
     static public function ctrBanearUsuario(){
         $usuarios = "usuarios";
         $id_usuario = $_POST["baneo"];
@@ -233,6 +243,16 @@ Class ControladorFormularios{
             <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario Baneado Correctamente</div>
             <?php 
         }
+    }
+
+    static public function ctrCambiarEstado(){
+        $pedidos = "pedidos";
+        $num_estado = $_POST["cambiar-estado"];
+        $id_pedido = $_POST["id_pedido"];
+
+        $respuesta = ModeloFormularios::mdlCambiarEstado($pedidos,$num_estado,$id_pedido);
+
+        return $respuesta;
     }
 
     static public function ctrLlenarCesta(){

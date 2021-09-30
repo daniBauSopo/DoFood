@@ -165,6 +165,18 @@ require_once "conexion.php";
             $stmt->close();
         }
 
+        static public function mdlTraerPedidosAdmin($usuarios,$pedidos,$restaurantes){
+            $stmt = Conexion::conectar();
+            $sql = "SELECT $pedidos.*,$usuarios.*,$restaurantes.* FROM $pedidos,$usuarios,$restaurantes WHERE $pedidos.id_pedido_usuario = $usuarios.id AND $pedidos.id_pedido_restaurante = $restaurantes.id_restaurante";
+
+            $res = $stmt->query($sql);
+
+            $dato = $res->fetch_all();
+
+            return $dato;
+            $stmt->close();
+        }
+
         static public function mdlBanearUsuarios($usuarios,$id_usuario){
             $stmt = Conexion::conectar();
             $sql = "UPDATE $usuarios SET bloqueado = 1 WHERE id = '$id_usuario' AND bloqueado = 0";
@@ -180,6 +192,21 @@ require_once "conexion.php";
             $stmt = Conexion::conectar();
             $sql = "UPDATE $usuarios SET bloqueado = 0 WHERE id = '$id_usuario' AND bloqueado = 1";
 
+            if($stmt->query($sql) === TRUE){
+                return "ok";
+            }else{
+                echo "Error: " . $sql . "<br>" . $stmt->error;
+            }
+        }
+
+        static public function mdlCambiarEstado($pedidos,$num_estado,$id_pedido){
+            $stmt = Conexion::conectar();
+
+            if($num_estado == 0){
+                $sql = "UPDATE $pedidos SET estado_pedido = 1 WHERE id_pedido = '$id_pedido' AND estado_pedido = 0";
+            }elseif($num_estado == 1){
+                $sql = "UPDATE $pedidos SET estado_pedido = 2 WHERE id_pedido = '$id_pedido' AND estado_pedido = 1";
+            }
             if($stmt->query($sql) === TRUE){
                 return "ok";
             }else{
@@ -228,7 +255,7 @@ require_once "conexion.php";
 
             if(count($id_usu) > 0){
 
-                $sql = "INSERT INTO $pedidos (id_pedido_restaurante, id_pedido_usuario , total_pedido) VALUES ('$id_res','$id_usu[id]','$total')";
+                $sql = "INSERT INTO $pedidos (id_pedido_restaurante, id_pedido_usuario , total_pedido, 'estado_pedido') VALUES ('$id_res','$id_usu[id]','$total',0)";
 
                 if($stmt->query($sql) === TRUE){
                 return "ok";
