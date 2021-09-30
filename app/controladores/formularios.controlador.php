@@ -172,7 +172,6 @@ Class ControladorFormularios{
         $restaurantes = "restaurantes";
         $categoria = "categorias";
         $id_res = $_GET["restaurante"];
-        
         $respuesta = ModeloFormularios::mdlTraerRestaurante($restaurantes,$categoria,$id_res);
 
         return $respuesta;
@@ -251,6 +250,22 @@ Class ControladorFormularios{
         $respuesta = ModeloFormularios::mdlOtenerDatosComidaCesta($id_com);
 
         return $respuesta;
+    }
+
+    static public function ctrIngresarPedido(){
+        $pedidos = "pedidos";
+        $usuarios = "usuarios";
+        $total = $_COOKIE["total"];
+        $id_res = $_COOKIE["id_res_pedido"];
+        $correo_usu = $_COOKIE["CorreoIngreso"];
+
+        if(isset($_POST["pagar"])){
+
+            $respuesta = ModeloFormularios::mdlIngresarPedido($pedidos,$usuarios,$total,$id_res,$correo_usu);
+
+            return $respuesta;
+        }
+        
     }
 
     

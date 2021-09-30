@@ -30,28 +30,16 @@ foreach($res as $i){
  ?>
 </ul>
 <?php
-    $min = 2;
-    if(number_format($suma,2,'.','') < $restaurante["minimo"]){ ?>
-        <p>Cuota por no superar el minimo: <?php echo $min ?></p>
-        <p class="total-pago">Total: <?php echo number_format($suma,2,'.','') + $min."€";?></p>
-<?php }elseif(number_format($suma,2,'.','') >= $restaurante["minimo"]){ ?>
-        <p class="total-pago">Total: <?php echo number_format($suma,2,'.','')."€";?></p>
-    <?php } ?>
-
-<button class="pagar" name="pagar" type="button">Pagar</button>
-<?php
-    function restarCantidad(){
-        if(isset($_POST["restar"]) && isset($_POST["cantidadPedido"])){
-            $_POST["restar"] = 1;
-            $resta = $_POST["cantidadPedido"] - $_POST["restar"];
-            return $resta;
-        }
-    }
-    function sumarCantidad(){
-        if(isset($_POST["restar"]) && isset($_POST["cantidadPedido"])){
-            $_POST["restar"] = 1;
-            $resta = $_POST["cantidadPedido"] - $_POST["restar"];
-            return $resta;
-        }
-    }
-?>
+    $cuota = 2.40;
+    if(number_format($suma,2) < $restaurante["minimo"]){ 
+        $total = $suma + $cuota + $restaurante["precio_entrega"]; ?>
+        <p class="cuota">Cuota por no superar el minimo: <?php echo number_format($cuota,2)."€"; ?></p>
+        <p class="pagar-precio-entrega" ><?php echo ($restaurante["precio_entrega"] > 0) ? "Precio de entrega ". $restaurante["precio_entrega"]."0 €" : "Entrega gratis" ; ?></p>
+        <p class="total-pago">Total: <?php echo number_format($total,2)."€";?></p>
+<?php }elseif(number_format($suma,2) >= $restaurante["minimo"]){ 
+        $total = $suma + $restaurante["precio_entrega"]; ?>
+        <p class="pagar-precio-entrega pagar-precio-entrega-active" ><?php echo ($restaurante["precio_entrega"] > 0) ? "Precio de entrega ". $restaurante["precio_entrega"]."0 €" : "Entrega gratis" ; ?></p>
+        <p class="total-pago">Total: <?php echo number_format($total,2)."€";?></p>
+    <?php } 
+    setcookie("total",number_format($total,2),time() + (86400 * 30),"/");
+    setcookie("id_res_pedido",$restaurante["id_restaurante"],time() + (86400 * 30),"/");?>

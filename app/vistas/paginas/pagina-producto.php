@@ -56,9 +56,10 @@
         <script>
             let contenedor = []
             function llenarCesta(str){
+                let id_rest = document.querySelector("p.gasto-minimo > span").innerText;
                 let carrito = document.querySelector('.producto-cesta-llena');
+                inter = parseInt(id_rest);
                 contenedor.push(str)
-                console.log(contenedor)
                 if(str == ""){
                     carrito.innerHTML = "";
                     return;
@@ -67,23 +68,49 @@
                     xhr.onreadystatechange = function(){
                         if(this.readyState == 4 && this.status == 200){
                         carrito.innerHTML = this.responseText;
-
+                        
                         }
+                        
                 };
-                xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/pedidosAdapter.php?idProductoCesta="+contenedor,true);
+                xhr.open("GET","http://localhost/DoFood/app/vistas/paginas/pedidosAdapter.php?idProductoCesta="+contenedor+"&restaurante="+<?php echo $res["id_restaurante"]; ?>,true);
                 xhr.send();
                 }
             }
+
+                let pagar = document.querySelector(".producto-cesta > form > button.pagar");
+                pagar.addEventListener("click",cambiarValor());
+
+                function cambiarValor(){
+                    pagar.value = 1;
+                }
+                function settboton(){
+                    pagar.value = 0;
+                }
+            
         </script>
         <div class="producto-cesta">
             <p class="titulo-cesta">Tu cesta <i class="fas fa-shopping-basket"></i></p>
-            <p class="gasto-minimo"><?php echo "Gasto mínimo ".$res["minimo"]."€"; ?></p>
+            <p id="gasto-minimo" class="gasto-minimo">Gasto mínimo <span><?php echo $res["minimo"]."€"; ?></span></p>
             <div class="producto-cesta-llena">
                 <img src="http://localhost/DoFood/public/img/carrito-vacio.png">   
             </div>
+        <form method="POST">
+           <button onload="settboton()" class="pagar" name="pagar" type="submit">Pagar</button> 
+        </form>
+        <?php $pedido = ControladorFormularios::ctrIngresarPedido(); 
+        
+        if($pedido == "ok"){
+            echo '<script>
+            if(window.history.replaceState){
+        
+                window.history.replaceState(null,null,window.location.href);
+        
+            }
+            
+            </script>';            
+        }?>
         </div>
     </div>
-   
 </div>
 <?php
     include "footer.php";

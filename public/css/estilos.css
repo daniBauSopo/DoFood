@@ -72,6 +72,12 @@ header{
 }
 /* -BARRA */
 .bg-color{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
     background-color: var(--primario);
 }
 .header-barra-superior{
@@ -543,7 +549,7 @@ form > input[type="submit"]:hover{
 }
 /*PRODUCTOS*/
 .container-restaurantes{
-    margin-top: 20px;
+    margin-top: 100px;
     width: 100%;
     min-width: 420px;
 }
@@ -771,7 +777,7 @@ form > input[type="submit"]:hover{
     position: relative;
 }
 .imagen-producto{
-    height: 240px;
+    height: 280px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: -100px;
@@ -785,7 +791,7 @@ form > input[type="submit"]:hover{
     flex-direction: row;
     gap: 20px;
     position: relative;
-    top: -90px;
+    top: -120px;
     left: 0;
     width:100%;
     height: 100%;
@@ -988,15 +994,34 @@ form > input[type="submit"]:hover{
     -moz-appearance:textfield; 
 }
 .producto-cesta-llena > .total-pago{
-    border-top: #000 2px solid;
     font-family: var(--roboto);
-    font-size: 20px;
+    display: inline-block;
+    font-size: 22px;
+    text-transform: uppercase;
+    border: var(--primario) 1px solid;
+    border-radius: 20px;
     color: #000;
-    padding-top: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 10px 20px;
+    margin-top: 10px;
 }
-.producto-cesta-llena > button{
+.producto-cesta-llena > .cuota{
+    border-top: #000 2px solid;
+    padding-top: 20px;
+    font-size: 18px;
+    color: #808080;
+    font-family: var(--rubik);
+}
+.producto-cesta-llena > .pagar-precio-entrega{
+    font-size: 18px;
+    color: #808080;
+    font-family: var(--rubik);
+    padding-top: 10px;
+}
+.producto-cesta-llena > .pagar-precio-entrega-active{
+    border-top: #000 2px solid;
+    padding-top: 20px;
+}
+.producto-cesta > form > button{
     color: #fff;
     background-color: var(--primario);
     width: 100%;
@@ -1006,7 +1031,7 @@ form > input[type="submit"]:hover{
     padding: 10px 0px;
     margin-top: 20px;
 }
-.producto-cesta-llena > button:hover{
+.producto-cesta > form > button:hover{
     background-color: #ad3325;
     cursor: pointer;
 }

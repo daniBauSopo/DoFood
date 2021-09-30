@@ -221,4 +221,39 @@ require_once "conexion.php";
             $stmt->close();
         }
 
+        static public function mdlIngresarPedido($pedidos,$usuarios,$total,$id_res,$correo_usu){
+            $stmt = Conexion::conectar();
+
+            $id_usu = self::mdlTraerIdUsuario($usuarios,$correo_usu);
+
+            if(count($id_usu) > 0){
+
+                $sql = "INSERT INTO $pedidos (id_pedido_restaurante, id_pedido_usuario , total_pedido) VALUES ('$id_res','$id_usu[id]','$total')";
+
+                if($stmt->query($sql) === TRUE){
+                return "ok";
+                }else{
+                 echo "Error: " . $sql . "<br>" . $stmt->error;
+                }
+            }
+            
+            $stmt->close();
+            
+        }
+
+        static public function mdlTraerIdUsuario($tabla,$email){
+            $stmt = Conexion::conectar();
+        
+            $sql = "SELECT * FROM $tabla WHERE email = '$email'";
+
+            $res = $stmt->query($sql);
+
+            if($res->num_rows > 0){
+                $dato = $res->fetch_assoc();
+                return $dato;
+            }else{
+                return false;
+            }
+}
+
     }
