@@ -28,6 +28,7 @@ h1{
     flex-direction: column;
     width: 50%;
     height: 100%;
+    z-index: 9999;
     background-color: var(--primario);
 }
 .mostrar{
@@ -77,7 +78,7 @@ header{
     right: 0;
     top: 0;
     width: 100%;
-    z-index: 9999;
+    z-index: 99;
     background-color: var(--primario);
 }
 .header-barra-superior{
@@ -601,6 +602,7 @@ form > input[type="submit"]:hover{
     }
     .aside-filtro{
         flex-grow: 2;
+        margin-top: 10px;
     }
 }
 @media(max-width:792px){
@@ -714,6 +716,7 @@ form > input[type="submit"]:hover{
     align-items: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    gap: 10px;
 }
 .lista-productos > li{
     border-top-left-radius: 10px;
@@ -729,7 +732,7 @@ form > input[type="submit"]:hover{
 }
 .lista-productos > li > .minimo > p{
     position: absolute;
-    left: 170px;
+    left:60%;
     top: -50px;
     font-family: var(--roboto);
     font-weight: 700;
@@ -770,7 +773,7 @@ form > input[type="submit"]:hover{
 }
 .lista-productos > li > .lista-productos-primero > .categoria-restaurante{
     font-family: var(--rubik);
-    font-size: 13px;
+    font-size: 15px;
 }
 .categoria-restaurante > span{
     font-size: 16px;
@@ -784,13 +787,13 @@ form > input[type="submit"]:hover{
 }
 .lista-productos > li > .lista-productos-segundo > .entrega-restaurante{
     font-family: var(--quicksand);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: var(--primario);
 }
 .lista-productos > li > .lista-productos-segundo > .modo-restaurante{
     font-family: var(--quicksand);
-    font-size: 14px;
+    font-size: 16px;
 }
 .lista-productos > li > .lista-productos-segundo > .tiempo-restaurante{
     font-family: var(--quicksand);
@@ -805,6 +808,13 @@ form > input[type="submit"]:hover{
         flex-grow: 1;
         width: 100%;
     }
+    .producto-cesta{
+        flex-shrink: 2;
+        flex-basis: 100%;
+    }
+    .producto-flex{
+        padding: 10px;
+    }
     
 }
 @media(max-width:792px){
@@ -813,6 +823,10 @@ form > input[type="submit"]:hover{
     }
     .lista-comida > li{
         width: 100%;
+    }
+    .producto-cesta{
+        flex-shrink: 2;
+        flex-basis: 100%;
     }
 }
 .container-producto{
@@ -856,14 +870,12 @@ form > input[type="submit"]:hover{
 }
 .producto-cesta{
     background-color: #fff;
-    flex-grow: 2;
-    flex-shrink: 3;
+    flex-grow: 1;
     border-radius: 20px;
     padding: 20px;
     text-align: center;
     -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.20); 
     box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.20);
-    max-width: 340px;
 }
 .producto-cesta > .titulo-cesta {
     color: var(--primario);
@@ -974,7 +986,7 @@ form > input[type="submit"]:hover{
 }
 .precio-añadir > .añadir:hover,
 .precio-añadir > .btn-añadir:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
     background-color: #ad3325;
 }
 .listar-cesta{
