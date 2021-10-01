@@ -76,8 +76,8 @@
                 xhr.send();
                 }
             }
-
                 let pagar = document.querySelector(".producto-cesta > form > button.pagar");
+                
                 pagar.addEventListener("click",cambiarValor());
 
                 function cambiarValor(){

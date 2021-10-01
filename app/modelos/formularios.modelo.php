@@ -255,7 +255,7 @@ require_once "conexion.php";
 
             if(count($id_usu) > 0){
 
-                $sql = "INSERT INTO $pedidos (id_pedido_restaurante, id_pedido_usuario , total_pedido, 'estado_pedido') VALUES ('$id_res','$id_usu[id]','$total',0)";
+                $sql = "INSERT INTO $pedidos (id_pedido_restaurante, id_pedido_usuario , total_pedido, estado_pedido) VALUES ('$id_res','$id_usu[id]','$total',0)";
 
                 if($stmt->query($sql) === TRUE){
                 return "ok";

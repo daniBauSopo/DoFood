@@ -8,6 +8,7 @@
                     <p><?php echo $_COOKIE["calleCookie"]; ?></p>
                     <a href="index.php?pagina=inicio">Cambiar direccion</a>
                 </div>
+                <div class="aside-cat-fill">
                 <div class="aside-categorias">
                     <div>
                         <p>Categorias</p>
@@ -68,8 +69,9 @@
                     </form>
                 </div>
             </div>
+            </div>
             <div class="principal-container">
-                <form action="GET">
+                <form action="POST">
                     <input type="text" placeholder="Categoría o restaurante" class="busqueda-container">
                 </form>
                 <ul class="lista-productos">

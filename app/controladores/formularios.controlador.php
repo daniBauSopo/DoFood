@@ -223,26 +223,16 @@ Class ControladorFormularios{
 
         return $respuesta;
 
-        if($respuesta == "ok"){
-            ?>
-            <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario Baneado Correctamente</div>
-            <?php 
-        }
     }
 
     static public function ctrRevocarUsuario(){
         $usuarios = "usuarios";
         $id_usuario = $_POST["revocar"];
+        echo $id_usuario;
 
         $respuesta = ModeloFormularios::mdlRevocarUsuarios($usuarios,$id_usuario);
 
         return $respuesta;
-
-        if($respuesta == "ok"){
-            ?>
-            <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario Baneado Correctamente</div>
-            <?php 
-        }
     }
 
     static public function ctrCambiarEstado(){

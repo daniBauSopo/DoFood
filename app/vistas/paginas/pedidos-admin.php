@@ -17,8 +17,8 @@ $pedidos = ControladorFormularios::ctrTraerPedidosAdmin();?>
                             <p class="titulo-pedido">Estado pedido</p>
                             <p class="estado-pedido"><?php echo ($pedido[4] == 0) ? "Procesado" : ($pedido[4] == 1 ? "Enviado" : ($pedido[4] == 2 ? "Entregado" : "Error")); ?></p>
                             <form method="POST">
-                                <button class="btn-cambiar-estado" type="submit" onclick="preDefault();" value=<?php echo $pedido[4]; ?> name="cambiar-estado">Cambiar Estado</button>
                                 <input type="hidden" name="id_pedido" value=<?php echo $pedido[0]; ?>>
+                                <button class="btn-cambiar-estado" type="submit" onclick="preDefault();" value=<?php echo $pedido[4]; ?> name="cambiar-estado">Cambiar Estado</button>
                             </form>
                         </div>
                         <div class="sub-segundo">
@@ -35,4 +35,14 @@ $pedidos = ControladorFormularios::ctrTraerPedidosAdmin();?>
             <?php } ?>
     </ul>
 </div>
-<?php $cambio = ControladorFormularios::ctrCambiarEstado(); ?>
+<?php $cambio = ControladorFormularios::ctrCambiarEstado();
+if($cambio == "ok"){
+    echo '<script>
+    if(window.history.replaceState){
+
+        window.history.replaceState(null,null,window.location.href);
+
+    }
+    
+    </script>';            
+} ?>

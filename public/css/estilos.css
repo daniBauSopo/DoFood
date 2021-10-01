@@ -576,7 +576,7 @@ form > input[type="submit"]:hover{
     background-repeat: no-repeat;
     background-position: 10px 10px;
     padding-left: 40px;
-    width: 900px;
+    width: 100%;
     margin-left: 40px;
 }
 .principal-container > form > .busqueda-container:focus{
@@ -584,7 +584,34 @@ form > input[type="submit"]:hover{
 }
 @media(max-width:1200px){
     .principal-container > form > .busqueda-container{
-        width: 600px;
+        width: 100%;
+    }
+    .flex-container{
+        flex-direction: column;
+    }
+    .aside-cat-fill{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: row;
+        margin-top: 20px;
+    }
+    .aside-categorias{
+        flex-grow: 2;
+    }
+    .aside-filtro{
+        flex-grow: 2;
+    }
+}
+@media(max-width:792px){
+    .lista-productos > li{
+        width: 100%;
+    }
+    .lista-productos > li > img{
+        width: auto;
+    }
+    .principal-container > form > .busqueda-container{
+        max-width: 500px;
     }
 }
 .aside-sitio{
@@ -692,6 +719,8 @@ form > input[type="submit"]:hover{
     border-top-left-radius: 10px;
     cursor: pointer;
     overflow: hidden;
+    flex-grow: 2;
+    flex-basis: 400px;
     border-top-right-radius: 10px;
     margin:0px 10px 20px 0px;
 }
@@ -715,7 +744,7 @@ form > input[type="submit"]:hover{
     box-shadow: 0px 0px 30px -4px rgba(0,0,0,0.25);    
 }
 .lista-productos > li > img{
-    width: 350px;
+    width: 100%;
     height: 230px;
     background-repeat: no-repeat;
     transition: transform .5s ease;
@@ -771,6 +800,21 @@ form > input[type="submit"]:hover{
     border-radius: 10px;
 }
 /* PAGINA PRODUCTO */
+@media(max-width:1200px){
+    .producto-todo{
+        flex-grow: 1;
+        width: 100%;
+    }
+    
+}
+@media(max-width:792px){
+    .nav-producto{
+        flex-direction: column;
+    }
+    .lista-comida > li{
+        width: 100%;
+    }
+}
 .container-producto{
     margin: 0 auto;
     max-width: 1600px;
@@ -790,6 +834,7 @@ form > input[type="submit"]:hover{
     align-items: baseline;
     flex-direction: row;
     gap: 20px;
+    flex-wrap: wrap;
     position: relative;
     top: -120px;
     left: 0;
@@ -800,7 +845,7 @@ form > input[type="submit"]:hover{
 .producto-todo{
     flex-grow: 2;
     flex-shrink: 2;
-    max-width: 1240px;
+    flex-basis: 1200px;
 }
 .producto-info{
     background-color: #fff;
@@ -895,9 +940,7 @@ form > input[type="submit"]:hover{
 .lista-comida > li{
     padding: 20px;
     border-radius: 20px;
-    flex: 1 0 auto;
-    min-width: 300px;
-    max-width: 400px;
+    flex: 2 3 300px;
     -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.05); 
     box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.05);
 }
@@ -928,6 +971,11 @@ form > input[type="submit"]:hover{
     color: #fff;
     cursor: pointer;
     border: none;
+}
+.precio-añadir > .añadir:hover,
+.precio-añadir > .btn-añadir:hover{
+    transform: scale(1.1);
+    background-color: #ad3325;
 }
 .listar-cesta{
     list-style: none;
@@ -1177,7 +1225,6 @@ form > input[type="submit"]:hover{
     gap: 20px;
 }
 .admin-pedidos > li{
-    border-radius: 20px;
     border: #808080 1px solid;
     padding: 30px;
     max-width: 240px;

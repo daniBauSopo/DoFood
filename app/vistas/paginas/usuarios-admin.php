@@ -25,4 +25,14 @@ $res = ControladorFormularios::ctrTraerUsuariosAdmin(); ?>
         }?> 
     </ul>
 </div>
-<?php $respuesta = ControladorFormularios::ctrBanearUsuario(); ?>
+<?php $respuesta = ControladorFormularios::ctrBanearUsuario();
+if($respuesta == "ok"){
+    echo '<script>
+    if(window.history.replaceState){
+
+        window.history.replaceState(null,null,window.location.href);
+
+    }
+    
+    </script>';            
+} ?>
