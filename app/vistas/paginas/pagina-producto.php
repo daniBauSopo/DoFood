@@ -60,6 +60,9 @@
                 let carrito = document.querySelector('.producto-cesta-llena');
                 inter = parseInt(id_rest);
                 contenedor.push(str)
+                if(contenedor.length > 0){
+                    document.querySelector('.producto-cesta > form#form-pagar').style.display = 'block';
+                }
                 if(str == ""){
                     carrito.innerHTML = "";
                     return;
@@ -86,6 +89,7 @@
                 function settboton(){
                     pagar.value = 0;
                 }
+
             
         </script>
         <div class="producto-cesta">
@@ -94,10 +98,12 @@
             <div class="producto-cesta-llena">
                 <img src="http://localhost/DoFood/public/img/carrito-vacio.png">   
             </div>
-        <form method="POST">
-           <button onload="settboton()" class="pagar" name="pagar" type="submit">Pagar</button> 
-        </form>
-        <?php $pedido = ControladorFormularios::ctrIngresarPedido(); 
+                <form style="display: none;" id="form-pagar" method="POST">
+                    <button onload="settboton()" class="pagar" name="pagar" type="submit">Pagar</button> 
+                </form>
+            <?php 
+        
+         $pedido = ControladorFormularios::ctrIngresarPedido(); 
         
         if($pedido == "ok"){
             echo '<script>
@@ -107,7 +113,8 @@
         
             }
             
-            </script>';            
+            </script>';   
+            setcookie("total","",time() - 3600,"/");         
         }?>
         </div>
     </div>
