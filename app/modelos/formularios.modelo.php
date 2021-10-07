@@ -201,12 +201,12 @@ require_once "conexion.php";
 
         static public function mdlCambiarEstado($pedidos,$num_estado,$id_pedido){
             $stmt = Conexion::conectar();
-
             if($num_estado == 0){
-                $sql = "UPDATE $pedidos SET estado_pedido = 1 WHERE id_pedido = '$id_pedido' AND estado_pedido = 0";
+                $sql = "UPDATE $pedidos SET estado_pedido = 1 WHERE id_pedido = '$id_pedido'";
             }elseif($num_estado == 1){
-                $sql = "UPDATE $pedidos SET estado_pedido = 2 WHERE id_pedido = '$id_pedido' AND estado_pedido = 1";
+                $sql = "UPDATE $pedidos SET estado_pedido = 2 WHERE id_pedido = '$id_pedido'";
             }
+
             if($stmt->query($sql) === TRUE){
                 return "ok";
             }else{

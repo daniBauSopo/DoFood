@@ -13,10 +13,8 @@ $res = ControladorFormularios::ctrTraerUsuariosAdmin(); ?>
                          <p class="verificado" >Verificado</p>
                          <p><?php echo $usu[3]; ?></p>
                     </div>
-                    <form class="formBaneo" method="POST">
-                        <button type="submit" onclick="preDefault();" value=<?php echo $usu[0]; ?> name="baneo"><i class="fas fa-ban"></i></button>
-                        <button type="submit" onclick="preDefault();" value=<?php echo $usu[0]; ?> name="revocar" disabled><i class="fas fa-clipboard-check"></i></button>
-                    </form>
+                        <input type="hidden" id="cod_baneo" value=<?php echo $usu[0]; ?>>
+                        <input type="button" value="Bloquear" name="baneo" class="btn-banear"><i class="fas fa-ban"></i>
                 </li>
         <?php } elseif($usu[4] == 1){ ?>
             <?php
@@ -34,5 +32,6 @@ if($respuesta == "ok"){
 
     }
     
-    </script>';            
+    </script>';
+
 } ?>

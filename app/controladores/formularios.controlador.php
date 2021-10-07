@@ -219,6 +219,8 @@ Class ControladorFormularios{
         $usuarios = "usuarios";
         $id_usuario = $_POST["baneo"];
 
+        echo $_POST["baneo"] ;
+
         $respuesta = ModeloFormularios::mdlBanearUsuarios($usuarios,$id_usuario);
 
         return $respuesta;
@@ -237,9 +239,9 @@ Class ControladorFormularios{
 
     static public function ctrCambiarEstado(){
         $pedidos = "pedidos";
-        $num_estado = $_POST["cambiar-estado"];
-        $id_pedido = $_POST["id_pedido"];
-
+        $num_estado = $_POST["Estado"];
+        $id_pedido = $_POST["ID_pedido"];
+        
         $respuesta = ModeloFormularios::mdlCambiarEstado($pedidos,$num_estado,$id_pedido);
 
         return $respuesta;

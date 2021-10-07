@@ -114,7 +114,12 @@
             }
             
             </script>';   
-            setcookie("total","",time() - 3600,"/");         
+            setcookie("total","",time() - 3600,"/");
+            ?>
+            <div class="pedido">
+                <p>Pedido realizado</p>
+            </div>
+            <?php         
         }?>
         </div>
     </div>

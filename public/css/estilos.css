@@ -873,6 +873,9 @@ form > input[type="submit"]:hover{
     background-color: #fff;
     flex-grow: 1;
     border-radius: 20px;
+    position: sticky;
+    top: 100px;
+    left: 0;
     padding: 20px;
     text-align: center;
     -webkit-box-shadow: 0px 0px 36px 11px rgba(0,0,0,0.20); 
@@ -1105,9 +1108,13 @@ form > input[type="submit"]:hover{
     width: 100%;
 }
 .contenedor-panel{
-    float: left;
     background-color: #2E4053;
+    float: left;
+    position: sticky;
+    top: 0;
+    left: 0;
     height: 100vh;
+    min-width: 294px;
     -webkit-box-shadow: 4px 1px 5px 0px rgba(0,0,0,0.46); 
     box-shadow: 4px 1px 5px 0px rgba(0,0,0,0.46);
 }
@@ -1120,6 +1127,7 @@ form > input[type="submit"]:hover{
     color: #fff;
     border-bottom: #fff 2px solid;
     padding: 20px;
+    text-align: center;
 }
 .contenedor-panel > .panel-configuracion{
     display: flex;
@@ -1155,10 +1163,6 @@ form > input[type="submit"]:hover{
 }
 .botonera-admin > a:hover{
     background-color: #34495E;
-}
-.admin-content{
-    display: flex;
-    justify-content: center;
 }
 /* USUARIOS ADMIN */
 .con-usuarios{
@@ -1219,6 +1223,7 @@ form > input[type="submit"]:hover{
     font-size: 25px;
     border: none;
     padding: 10px;
+    cursor: pointer;
 }
 /* PEDIDOS ADMIN */
 .con-pedidos{
@@ -1236,11 +1241,12 @@ form > input[type="submit"]:hover{
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 .admin-pedidos > li{
     border: #808080 1px solid;
     padding: 30px;
-    max-width: 240px;
+    max-width: 260px;
 }
 .admin-pedidos > li > .pedido-primera-parte > p{
     font-family: var(--rubik);
@@ -1251,6 +1257,12 @@ form > input[type="submit"]:hover{
     font-weight: bold;
     font-size: 25px;
     border-bottom: #000 1px solid;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.admin-pedidos > li > .pedido-primera-parte > p.cliente-pedido > span{
+    font-weight: bold;
+    font-size: 20px;
     margin-bottom: 10px;
     display: inline-block;
 }
@@ -1275,12 +1287,12 @@ form > input[type="submit"]:hover{
     font-weight: bold;
     border-radius: 20px;
 }
-.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > form > .btn-cambiar-estado{
+.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > input.btn-cambiar-estado{
     border: #000 1px solid;
-    font-size: 18px;
+    font-size: 15px;
     font-family: var(--rubik);
 }
-.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > form > .btn-cambiar-estado:hover{
+.admin-pedidos > li > .pedido-segunda-parte > div.sub-primero > input.btn-cambiar-estado:hover{
     cursor: pointer;
     background-color: rgb(202, 202, 202);
 }
