@@ -41,7 +41,7 @@ Class ControladorFormularios{
                 $valor = $_POST["ingresoEmail"];
 
                 $respuesta = ModeloFormularios::mdlSeleccionarRegistros($tabla,$valor);
-                if($respuesta['email'] == $correo && $respuesta['pass'] == $pass && !isset($_SESSION["añadir"])){
+                if($respuesta['email'] == $correo && $respuesta['pass'] == $pass && !isset($_SESSION["añadir"]) && $respuesta['bloqueado'] == 0){
                     $_SESSION["validarIngreso"] = "ok";
                     $_SESSION["añadir"]="";
                     setcookie("CorreoIngreso",$correo,time() + (86400 * 30),"/");
@@ -55,7 +55,7 @@ Class ControladorFormularios{
 					window.location = "index.php?pagina=inicio";
 
 				    </script>';
-                }else if($respuesta['email'] == $correo && $respuesta['pass'] == $pass && isset($_SESSION["añadir"])){
+                }else if($respuesta['email'] == $correo && $respuesta['pass'] == $pass && isset($_SESSION["añadir"]) && $respuesta['bloqueado'] == 0){
                     $_SESSION["validarIngreso"] = "ok";
                     setcookie("CorreoIngreso",$correo,time() + (86400 * 30),"/");
                     echo '<script>
@@ -68,6 +68,20 @@ Class ControladorFormularios{
 					window.location = "index.php?pagina=pagina-producto&restaurante='.$_SESSION["añadir"].'";
 
 				    </script>';
+                }elseif($respuesta['email'] == $correo && $respuesta['pass'] && $respuesta['bloqueado'] == 1){
+
+                    echo '<script>
+					if(window.history.replaceState){
+		
+						window.history.replaceState(null,null,window.location.href);
+		
+					}
+				    </script>';
+                    ?>
+
+				    <div class="alerta" style="padding: 20px; background-color: #fff; color: #dd4e3e;  position: relative; margin-top:10px; border-radius: 5px;font-size: 17px;font-family:'Quicksand', sans-serif;">Usuario bloqueado</div>
+
+                    <?php
                 }elseif($correo=="admin@gmail.com" && $pass=="admin"){
                     echo '<script>
 					if(window.history.replaceState){
@@ -217,9 +231,7 @@ Class ControladorFormularios{
 
     static public function ctrBanearUsuario(){
         $usuarios = "usuarios";
-        $id_usuario = $_POST["baneo"];
-
-        echo $_POST["baneo"] ;
+        $id_usuario = $_POST["ID_usuario_ban"];
 
         $respuesta = ModeloFormularios::mdlBanearUsuarios($usuarios,$id_usuario);
 
@@ -229,8 +241,7 @@ Class ControladorFormularios{
 
     static public function ctrRevocarUsuario(){
         $usuarios = "usuarios";
-        $id_usuario = $_POST["revocar"];
-        echo $id_usuario;
+        $id_usuario = $_POST["ID_usuario_des"];
 
         $respuesta = ModeloFormularios::mdlRevocarUsuarios($usuarios,$id_usuario);
 

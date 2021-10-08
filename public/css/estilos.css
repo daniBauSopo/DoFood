@@ -1173,7 +1173,6 @@ form > input[type="submit"]:hover{
     margin: 30px;
     font-size: 30px;
     font-family: (--rubik);
-    border-bottom: #000 3px solid;
 }
 .admin-usuarios{
     list-style: none;
@@ -1219,7 +1218,7 @@ form > input[type="submit"]:hover{
 .admin-usuarios > li > div > p{
     font-size: 14px;
 }
-.admin-usuarios > li > form > button{
+.admin-usuarios > li > input{
     font-size: 25px;
     border: none;
     padding: 10px;

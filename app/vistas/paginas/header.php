@@ -33,7 +33,7 @@
                         <a href="#contacto" class="contacto">Contacto</a>
                         <a href="#">Restaurantes</a>
                         <a href="#" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
-                        <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
+                        <a href="index.php?pagina=ingreso" onclick="<?php salir(); ?>">Salir</a>
                         <?php
                     }else{
                         ?>
@@ -48,7 +48,7 @@
                     if(isset($_COOKIE["CorreoIngreso"])){
                         ?>
                             <a href="#" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
-                            <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
+                            <a href="index.php?pagina=ingreso" onclick="<?php salir(); ?>">Salir</a>
                         <?php
                         }else{
                             ?>
@@ -60,7 +60,7 @@
                     if(isset($_COOKIE["CorreoIngreso"])){
                         ?>
                             <a href="#" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
-                            <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
+                            <a href="index.php?pagina=ingreso" onclick="<?php salir(); ?>">Salir</a>
                         <?php
                         }else{
                             ?>
@@ -84,5 +84,11 @@
             <?php
         }
         
+    }
+
+    function salir(){
+        setcookie("CorreoIngreso","",time() - 3600,"/");
+        setcookie("calleCookie","",time() - 3600,"/");
+        session_destroy();
     }
 ?>

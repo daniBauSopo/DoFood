@@ -4,7 +4,5 @@
                          <p class="baneado">Baneado</p>
                          <p><?php echo $usu[3]; ?></p>
                     </div>
-                    <input type="hidden" id="cod_revocar" value=<?php echo $usu[0]; ?>>
-                    <input type="button" value=<?php echo $usu[0]; ?> name="revocar" class="btn-revocar"><i class="fas fa-clipboard-check"></i></button>
+                    <input type="button" value="Desbloquear" name="revocar" class="btn-revocar" onclick="RevocarUsuario(<?php echo $usu[0]; ?>);"/>
                 </li>
-<?php $respuesta = ControladorFormularios::ctrRevocarUsuario(); ?>

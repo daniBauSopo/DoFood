@@ -53,6 +53,24 @@
                     type:'post'
                 });
             }
+
+            function BanearUsuario(baneo){
+                var parametros = {"ID_usuario_ban":baneo};
+                $.ajax({
+                    data:parametros,
+                    url:'http://localhost/DoFood/app/vistas/paginas/usuarios-admin.php',
+                    type:'post'
+                });
+            }
+
+            function RevocarUsuario(revocar){
+                var parametros = {"ID_usuario_des":revocar};
+                $.ajax({
+                    data:parametros,
+                    url:'http://localhost/DoFood/app/vistas/paginas/usuarios-admin.php',
+                    type:'post'
+                });
+            }
         </script>
     </div>
     <div class="admin-content">
