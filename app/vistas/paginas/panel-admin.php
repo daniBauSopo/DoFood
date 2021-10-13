@@ -71,6 +71,7 @@
                     type:'post'
                 });
             }
+
         </script>
     </div>
     <div class="admin-content">

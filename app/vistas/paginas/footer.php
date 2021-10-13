@@ -18,6 +18,6 @@
         </div>
     </div>
     <div class="derechos">
-        <p>Todos los derechos reservados&copy; 2021</p>
+        <p>Todos los derechos reservados&copy; 2021 - <a href="#">Incidencias</a></p>
     </div>
 </footer>

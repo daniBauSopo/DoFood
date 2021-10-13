@@ -32,8 +32,8 @@
                         ?>
                         <a href="#contacto" class="contacto">Contacto</a>
                         <a href="#">Restaurantes</a>
-                        <a href="#" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
-                        <a href="index.php?pagina=ingreso" onclick="<?php salir(); ?>">Salir</a>
+                        <a href="index.php?pagina=pedidos-usuario" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
+                        <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
                         <?php
                     }else{
                         ?>
@@ -47,8 +47,8 @@
                 case "productos":
                     if(isset($_COOKIE["CorreoIngreso"])){
                         ?>
-                            <a href="#" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
-                            <a href="index.php?pagina=ingreso" onclick="<?php salir(); ?>">Salir</a>
+                            <a href="index.php?pagina=pedidos-usuario" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
+                            <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
                         <?php
                         }else{
                             ?>
@@ -59,8 +59,20 @@
                 case "pagina-producto":
                     if(isset($_COOKIE["CorreoIngreso"])){
                         ?>
-                            <a href="#" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
-                            <a href="index.php?pagina=ingreso" onclick="<?php salir(); ?>">Salir</a>
+                            <a href="index.php?pagina=pedidos-usuario" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
+                            <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
+                        <?php
+                        }else{
+                            ?>
+                            <a href="index.php?pagina=ingreso">Iniciar Sesion</a>
+                            <?php
+                        }
+                        break;
+                case "pedidos-usuario":
+                    if(isset($_COOKIE["CorreoIngreso"])){
+                        ?>
+                            <a href="index.php?pagina=pedidos-usuario" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
+                            <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
                         <?php
                         }else{
                             ?>

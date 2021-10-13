@@ -165,9 +165,13 @@ require_once "conexion.php";
             $stmt->close();
         }
 
-        static public function mdlTraerPedidosAdmin($usuarios,$pedidos,$restaurantes){
+        static public function mdlTraerPedidosAdmin($usuarios,$pedidos,$restaurantes,$id_us){
             $stmt = Conexion::conectar();
-            $sql = "SELECT $pedidos.*,$usuarios.*,$restaurantes.* FROM $pedidos,$usuarios,$restaurantes WHERE $pedidos.id_pedido_usuario = $usuarios.id AND $pedidos.id_pedido_restaurante = $restaurantes.id_restaurante";
+            $sql = "SELECT $pedidos.*,$usuarios.*,$restaurantes.* FROM $pedidos,$usuarios,$restaurantes 
+            WHERE $pedidos.id_pedido_usuario = $usuarios.id AND $pedidos.id_pedido_restaurante = $restaurantes.id_restaurante 
+            AND $pedidos.id_pedido_usuario = $id_us";
+
+            var_dump($sql);
 
             $res = $stmt->query($sql);
 
@@ -281,6 +285,36 @@ require_once "conexion.php";
             }else{
                 return false;
             }
-}
+        }
+
+        static public function mdlTraerPedidosUsuario($pedidos,$restaurantes,$usuarios,$correo_usu){
+            $stmt = Conexion::conectar();
+
+            $sql = "SELECT $pedidos.*,$restaurantes.*,$usuarios.email FROM $pedidos,$restaurantes,$usuarios 
+            WHERE $pedidos.id_pedido_usuario = $usuarios.id AND $pedidos.id_pedido_restaurante = $restaurantes.id_restaurante
+            AND $usuarios.email = '$correo_usu' ORDER BY $pedidos.fecha_pedido DESC";
+
+            $res = $stmt->query($sql);
+
+            $datos = $res->fetch_all();
+
+            return $datos;
+            $stmt->close();
+
+
+        }
+
+        static public function mdlLlenarUsuariosSelec($usuarios){
+            $stmt = Conexion::conectar();
+
+            $sql = "SELECT $usuarios.email,$usuarios.id FROM $usuarios";
+
+            $res = $stmt->query($sql);
+
+            $dato = $res->fetch_all();
+
+            return $dato;
+            $stmt->close();
+        }
 
     }

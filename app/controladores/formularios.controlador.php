@@ -223,8 +223,13 @@ Class ControladorFormularios{
         $pedidos = "pedidos";
         $usuarios = "usuarios";
         $restaurantes = "restaurantes";
+        $id_us = $_POST["ID_usuario_select"];
+        if(!isset($id_us)){
+            echo "no existe";
+        }elseif(isset($id_us)){
+            $respuesta = ModeloFormularios::mdlTraerPedidosAdmin($usuarios,$pedidos,$restaurantes,$id_us);
+        }
 
-        $respuesta = ModeloFormularios::mdlTraerPedidosAdmin($usuarios,$pedidos,$restaurantes);
     
         return $respuesta;
     }
@@ -289,6 +294,25 @@ Class ControladorFormularios{
             return $respuesta;
         }
         
+    }
+
+    static public function ctrTraerPedidosUsuario(){
+        $pedidos = "pedidos";
+        $restaurantes = "restaurantes";
+        $usuarios = "usuarios";
+        $correo_usu = $_COOKIE["CorreoIngreso"];
+        
+        $respuesta = ModeloFormularios::mdlTraerPedidosUsuario($pedidos,$restaurantes,$usuarios,$correo_usu);
+
+        return $respuesta;
+    }
+
+    static public function ctrLlenarUsuariosSelec(){
+        $usuarios = "usuarios";
+
+        $respuesta = ModeloFormularios::mdlLlenarUsuariosSelec($usuarios);
+
+        return $respuesta;
     }
 
     

@@ -14,8 +14,7 @@ foreach($res as $i){
     $res_cada_comida = ControladorFormularios::ctrOtenerDatosComidaCesta();
     $sumador = $res_cada_comida["precio_comida"];
     $nombre = $res_cada_comida["nombre_comida"];
-    $cont = array_count_values($res);
-    echo $cont;?>
+    $cont = array_count_values($res);?>
     <li>
         <div class="comida-adapter">
             <p><?php echo $nombre; ?></p>
