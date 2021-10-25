@@ -117,7 +117,7 @@
             setcookie("total","",time() - 3600,"/");
             ?>
             <div class="pedido">
-                <p>Pedido realizado</p>
+                <p style="background-color: #dd4e3e; padding:20px; font-family:'Rubik', sans-serif; color:#fff; font-size:18px;">Pedido realizado</p>
             </div>
             <?php         
         }?>

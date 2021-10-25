@@ -31,14 +31,14 @@
                     if(isset($_COOKIE["CorreoIngreso"])){
                         ?>
                         <a href="#contacto" class="contacto">Contacto</a>
-                        <a href="#">Restaurantes</a>
+                        <a href="index.php?pagina=restaurantes">Restaurantes</a>
                         <a href="index.php?pagina=pedidos-usuario" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
                         <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
                         <?php
                     }else{
                         ?>
                         <a href="#contacto" class="contacto">Contacto</a>
-                        <a href="#">Restaurantes</a>
+                        <a href="index.php?pagina=restaurantes">Restaurantes</a>
                         <a href="index.php?pagina=registro" class="registrarse">Registro</a>            
                         <a href="index.php?pagina=ingreso" class="iniciar">Iniciar Sesion</a>
                         <?php
@@ -80,6 +80,18 @@
                             <?php
                         }
                         break;
+                case "restaurantes":
+                    if(isset($_COOKIE["CorreoIngreso"])){
+                        ?>
+                            <a href="index.php?pagina=pedidos-usuario" class="cuenta"><?php echo $_COOKIE["CorreoIngreso"]; ?></a>
+                            <a href="index.php?pagina=ingreso" onclick="<?php session_destroy(); ?>">Salir</a>
+                        <?php
+                        }else{
+                            ?>
+                            <a href="index.php?pagina=ingreso">Iniciar Sesion</a>
+                            <?php
+                        }
+                        break;
                 default:
                         echo "<script>
                         window.location = 'index.php?pagina=error404';
@@ -90,7 +102,7 @@
             setcookie("CorreoIngreso","",time() - 3600,"/");
             ?>
             <a href="#contacto" class="contacto">Contacto</a>
-            <a href="#">Restaurantes</a>
+            <a href="index.php?pagina=restaurantes">Restaurantes</a>
             <a href="index.php?pagina=registro" class="registrarse">Registro</a>            
             <a href="index.php?pagina=ingreso" class="iniciar">Iniciar Sesion</a>
             <?php

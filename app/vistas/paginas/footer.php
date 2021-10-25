@@ -2,7 +2,7 @@
     <div class="footer-principal">
         <div class="acerca">
             <h1>Acerca de nosotros</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit eius, amet minus optio aut similique magnam. Voluptate ipsam velit, rerum veritatis distinctio perspiciatis molestiae, accusantium culpa laborum a tempore nihil?</p>
+            <p>Hola a todos los que nos lean , somos una compañia granadina empezando en el desarrollo de software, creemos que podemos ayudar a la gente para que puden comer mas fácilmente sin preocuparse</p>
         </div>
         <div class="contacto" id="contacto">
             <h1>Contacto</h1>

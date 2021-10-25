@@ -315,6 +315,22 @@ Class ControladorFormularios{
         return $respuesta;
     }
 
+    static public function ctrAcordeonRestaurantes(){
+        $restaurantes = "restaurantes";
+
+        $respuesta = ModeloFormularios::mdlAcordeonRestaurantes($restaurantes);
+
+        return $respuesta;
+    }
+
+    static public function ctrTraerLocalizacion(){
+        $restaurantes = "restaurantes";
+
+        $respuesta = ModeloFormularios::mdlTraerLocalizacion($restaurantes);
+
+        return $respuesta;
+    }
+
     
 }
 

@@ -18,7 +18,7 @@ require_once "conexion.php";
                     echo '<div class="alert alert-danger">Usuario ya existe en la base de datos</div>';
                 }else{
 
-                $sql = "INSERT INTO $tabla (email, pass) VALUES ('$datos[email]','$datos[pass]')";
+                $sql = "INSERT INTO $tabla (email, pass, bloqueado) VALUES ('$datos[email]','$datos[pass]',0)";
 
                 if($stmt->query($sql) === TRUE){
                 return "ok";
@@ -170,9 +170,7 @@ require_once "conexion.php";
             $sql = "SELECT $pedidos.*,$usuarios.*,$restaurantes.* FROM $pedidos,$usuarios,$restaurantes 
             WHERE $pedidos.id_pedido_usuario = $usuarios.id AND $pedidos.id_pedido_restaurante = $restaurantes.id_restaurante 
             AND $pedidos.id_pedido_usuario = $id_us";
-
-            var_dump($sql);
-
+            
             $res = $stmt->query($sql);
 
             $dato = $res->fetch_all();
@@ -314,6 +312,34 @@ require_once "conexion.php";
             $dato = $res->fetch_all();
 
             return $dato;
+            $stmt->close();
+        }
+
+        static public function mdlAcordeonRestaurantes($restaurantes){
+            $stmt = Conexion::conectar();
+
+            $sql = "SELECT $restaurantes.* FROM $restaurantes";
+
+            $res = $stmt->query($sql);
+
+            $dato = $res->fetch_all();
+
+            return $dato;
+            $stmt->close();
+        }
+
+        static public function mdlTraerLocalizacion($restaurantes){
+            $stmt = Conexion::conectar();
+
+            $sql = "SELECT DISTINCT $restaurantes.localizacion_restaurante FROM $restaurantes";
+
+            $res = $stmt->query($sql);
+
+            while($dato = $res->fetch_assoc()){
+                $array[] = $dato;
+            }
+            return $array;
+
             $stmt->close();
         }
 

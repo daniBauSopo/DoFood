@@ -49,7 +49,7 @@
                 var parametros = {"ID_pedido":ob1,"Estado":ob2};
                 $.ajax({
                     data:parametros,
-                    url:'http://localhost/DoFood/app/vistas/paginas/pedidos-admin.php',
+                    url:'http://localhost/DoFood/app/vistas/paginas/li-pedido.php',
                     type:'post'
                 });
             }

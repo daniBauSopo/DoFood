@@ -384,6 +384,7 @@ form > input[type="submit"]:hover{
         display: flex;
         flex-direction: column;
         padding: 20px;
+        gap: 10px;
     }
 }
 .footer-principal > div > h1{
@@ -423,6 +424,7 @@ form > input[type="submit"]:hover{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 10px;
     }
 }
 .ciudad{
@@ -1106,6 +1108,17 @@ form > input[type="submit"]:hover{
     cursor: pointer;
 }
 /* PEDIDO USUARIO */
+@media(max-width:1200px){
+    ul.lista-pedidos-usu > li{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+@media(max-width:792px){
+
+}
 .contenedor-pedidos-usu{
     margin: 120px auto 50px auto;
     max-width: 1200px;
@@ -1178,12 +1191,77 @@ ul.lista-pedidos-usu > li{
     color: var(--primario);
     font-family: var(--quicksand);
 }
+.lista-pedidos-usu > li > .li-pedido1 > .pedido-div2 > p:first-child{
+    font-weight: bold;
+}
 .lista-pedidos-usu > li > .li-pedido2 > p{
     color: #fff;
     background-color: var(--primario);
     padding: 15px;
     font-family: var(--rubik);
     font-size: 25px;
+}
+/* RESTAURANTES */
+.container-restaurantes-acordeon{
+    margin: 120px auto 50px auto;
+    max-width: 1200px;
+}
+.container-restaurantes-acordeon > p{
+    font-size: 30px;
+    font-family: var(--roboto);
+    color: var(--primario);
+    text-align: center;
+    border-bottom: var(--primario) 2px solid;
+    width: fit-content;
+    margin: 0 auto;
+}
+ul.lista-restaurantes{
+    list-style: none;
+    margin-top: 30px;
+}
+ul.lista-restaurantes > li > div{
+    background-color: var(--primario);
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+ul.lista-restaurantes > li > div > a{
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--rubik);
+    font-size: 24px;
+}
+ul.lista-restaurantes > li > div > p{
+    color: #fff;
+    font-family: var(--rubik);
+    font-size: 24px;
+
+}
+ul.lista-restaurantes-detalle{
+    list-style: none;
+    padding-inline-start: 60px;
+    padding-inline-end: 60px;
+}
+ul.lista-restaurantes-detalle > li{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: var(--primario) 2px solid;
+    border-top: none;
+}
+ul.lista-restaurantes-detalle > li > p{
+    font-size: 20px;
+    font-family: var(--rubik);
+    color: var(--primario);
+}
+ul.lista-restaurantes-detalle > li > p:first-child{
+    font-size: 20px;
+    font-family: var(--rubik);
+    color: var(--primario);
+    font-weight: bold;
 }
 /* PANEL ADMIN */
 .contenedor-admin-todo{

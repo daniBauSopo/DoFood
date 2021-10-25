@@ -43,13 +43,14 @@ function VerPedidoUsuario(usuario){
         var parametros = {"ID_usuario_select":usuario};
         $.ajax({
             data:parametros,
-            url:'http://localhost/DoFood/app/vistas/paginas/pedidos-admin.php',
+            url:'http://localhost/DoFood/app/vistas/paginas/li-pedido.php',
             type:'post',
             success: function (response) {   
-                $("admin-pedidos").html(response);
+                $(".admin-pedidos").html(response);
             }
         });
     }
+
 // let checkCategorias = document.querySelectorAll(".aside-categorias > form > input");
 // for(const check of checkCategorias){
 //         console.log(check.checked);
